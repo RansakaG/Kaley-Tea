@@ -64,9 +64,21 @@ function Navigation() {
   );
 }
 
+// Component to scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -27,13 +27,12 @@ export default function BuySipHeal() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
         </div>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl animate-fade-in">
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl animate-fade-in">
           <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-wide leading-relaxed mb-8 sm:mb-12 md:mb-16">
             <span className="text-[#d4b896]">Buy</span>, <span className="text-[#d4b896]">Sip</span> & <span className="text-[#d4b896]">Heal</span>
+            <br />
+            <span className="text-base sm:text-xl md:text-2xl lg:text-3xl text-white/80">Bring the forest home to you</span>
           </h1>
-          <p className="text-xl md:text-2xl font-light italic text-white/80 tracking-wide">
-            Bring the forest home to you
-          </p>
         </div>
       </section>
 

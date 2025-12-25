@@ -21,7 +21,7 @@ export default function VisitHeal() {
           <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-wide leading-relaxed mb-8 sm:mb-12 md:mb-16">
             <span className="text-[#d4b896]">Visit</span> & <span className="text-[#d4b896]">Heal</span>
             <br />
-            <span className="text-white/80">Do Nothing. Just Feel.</span>
+            <span className="text-base sm:text-xl md:text-2xl lg:text-3xl text-white/80">Do Nothing. Just Feel.</span>
           </h1>
 
           {/* CTA Button - white styling */}

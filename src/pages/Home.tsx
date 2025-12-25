@@ -19,36 +19,41 @@ function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
         </div>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-light text-white mb-8 leading-relaxed tracking-wide">
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl animate-fade-in">
+          {/* Hero Title - Progressive sizing: 3xl (mobile) → 5xl (sm) → 7xl (md+) */}
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-light text-white mb-4 sm:mb-6 md:mb-8 leading-tight sm:leading-relaxed tracking-wide">
             Healing One Forest, One Community and You
           </h1>
-          <p className="text-2xl md:text-3xl font-light text-white/90 mb-16 tracking-wide">
+
+          {/* Subtitle - Progressive sizing with adjusted spacing */}
+          <p className="text-lg sm:text-2xl md:text-3xl font-light text-white/90 mb-8 sm:mb-12 md:mb-16 tracking-wide leading-relaxed">
             One Flavourful Sip at a Time
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          {/* CTA Buttons - Auto width based on text content */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
             <Link
               to="/visit"
-              className="px-10 py-4 border-2 border-white/60 text-white font-light tracking-widest text-sm rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500"
+              className="px-8 sm:px-10 py-3 sm:py-4 border-2 border-white/60 text-white font-light tracking-widest text-xs sm:text-sm rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500"
             >
               Experience Kaley
             </Link>
             <Link
               to="/buy"
-              className="px-10 py-4 border-2 border-white/60 text-white font-light tracking-widest text-sm rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500"
+              className="px-8 sm:px-10 py-3 sm:py-4 border-2 border-white/60 text-white font-light tracking-widest text-xs sm:text-sm rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500"
             >
               Our Teas
             </Link>
           </div>
         </div>
 
+        {/* Scroll indicator - adjusted position for mobile */}
         <button
           onClick={() => document.getElementById('journey')?.scrollIntoView({ behavior: 'smooth' })}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce-slow cursor-pointer hover:opacity-80 transition-opacity"
+          className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 animate-bounce-slow cursor-pointer hover:opacity-80 transition-opacity"
           aria-label="Scroll to journey section"
         >
-          <ChevronDown className="w-8 h-8 text-white/60" strokeWidth={1} />
+          <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 text-white/60" strokeWidth={1} />
         </button>
       </section>
 

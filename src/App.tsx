@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import VisitHeal from './pages/VisitHeal';
 import BuySipHeal from './pages/BuySipHeal';
 import ConnectHeal from './pages/ConnectHeal';
+import logoMain from './assets/images/logo-main.png';
 
 function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,11 +25,19 @@ function Navigation() {
   // Determine text color based on scroll state and page type
   const getNavClass = () => {
     if (scrolled) {
-      return 'bg-[#faf8f5]/95 backdrop-blur-sm shadow-sm text-[#1a4d2e]';
+      return 'bg-[#faf8f5]/95 backdrop-blur-sm shadow-sm text-[#1a1f1a]';
     }
     return needsDarkText
-      ? 'bg-transparent text-[#1a4d2e]'
+      ? 'bg-transparent text-[#1a1f1a]'
       : 'bg-transparent text-white';
+  };
+
+  // Determine logo filter based on scroll state and page type
+  const getLogoClass = () => {
+    if (scrolled || needsDarkText) {
+      return 'h-10 w-auto brightness-0'; // Dark logo
+    }
+    return 'h-10 w-auto brightness-0 invert'; // White logo
   };
 
   return (
@@ -36,10 +45,14 @@ function Navigation() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${getNavClass()}`}
     >
       <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
-        <Link to="/" className="text-xl font-light tracking-[0.3em] hover:opacity-70 transition-opacity duration-500">
-          KALEY TEA
+        <Link to="/" className="hover:opacity-70 transition-opacity duration-500">
+          <img
+            src={logoMain}
+            alt="Kaley Tea"
+            className={`${getLogoClass()} transition-all duration-500`}
+          />
         </Link>
-        <div className="hidden md:flex items-center gap-12 font-light tracking-wider text-sm">
+        <div className="hidden md:flex items-center gap-12 font-medium tracking-wider text-sm">
           <Link
             to="/visit"
             className="hover:opacity-60 transition-opacity duration-500"
@@ -54,7 +67,7 @@ function Navigation() {
           </Link>
           <Link
             to="/visit"
-            className="text-[#c9a66b] hover:opacity-70 transition-all duration-500"
+            className="text-[#a86d4d] hover:opacity-70 transition-all duration-500"
           >
             Book
           </Link>

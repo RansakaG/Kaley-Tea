@@ -10,7 +10,7 @@ export default function ConnectHeal() {
             {/* Hero Section */}
             <section className="pt-40 pb-24 px-6">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h1 className="text-5xl md:text-7xl font-light tracking-wide text-[#1a4d2e] mb-8 leading-relaxed">
+                    <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-normal tracking-wide text-[#1a4d2e] mb-8 leading-relaxed">
                         Connect & Heal
                     </h1>
                     <p className="text-xl md:text-2xl font-light text-[#5a6b62] leading-loose max-w-2xl mx-auto">

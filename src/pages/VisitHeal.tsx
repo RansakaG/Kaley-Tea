@@ -5,25 +5,29 @@ import visitHealHero from '../assets/images/visit-heal-hero-new.jpg';
 export default function VisitHeal() {
   return (
     <div className="bg-[#faf8f5] text-[#1e2a24]">
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[75vh] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${visitHealHero})`,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
         </div>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl animate-fade-in">
-          <h1 className="text-6xl md:text-8xl font-light text-white mb-8 leading-relaxed tracking-wide">
-            Visit & Heal
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl animate-fade-in">
+          {/* Hero text with white text on dark background */}
+          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-wide leading-relaxed mb-8 sm:mb-12 md:mb-16">
+            <span className="text-[#d4b896]">Visit</span> & <span className="text-[#d4b896]">Heal</span>
+            <br />
+            <span className="text-white/80">Do Nothing. Just Feel.</span>
           </h1>
-          <p className="text-2xl md:text-3xl font-light italic text-white/80 mb-16 tracking-wide">
-            Do Nothing. Just Feel.
-          </p>
 
-          <button className="px-10 py-4 border-2 border-white/60 text-white font-light tracking-widest text-sm rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500">
+          {/* CTA Button - white styling */}
+          <button
+            className="px-6 sm:px-8 py-2 sm:py-3 border border-white/60 text-white font-normal tracking-widest text-[10px] sm:text-xs rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500"
+          >
             Plan Your Visit
           </button>
         </div>

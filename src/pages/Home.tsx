@@ -16,38 +16,36 @@ function Home() {
             backgroundImage: `url(${heroBackground})`,
           }}
         >
+          {/* Dark overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
         </div>
 
-        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl animate-fade-in">
-          {/* Hero Title - Progressive sizing: 3xl (mobile) → 5xl (sm) → 7xl (md+) */}
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-light text-white mb-4 sm:mb-6 md:mb-8 leading-tight sm:leading-relaxed tracking-wide">
-            Healing One Forest, One Community and You
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl animate-fade-in">
+          {/* Unified Hero Statement - Light text on dark background */}
+          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-wide leading-relaxed mb-8 sm:mb-12 md:mb-16">
+            Healing One <span className="text-[#d4b896]">Forest</span>, One <span className="text-[#d4b896]">Community</span>, and <span className="text-[#d4b896] italic">You</span>
+            <br />
+            <span className="text-white/80">One Flavourful Sip at a Time</span>
           </h1>
 
-          {/* Subtitle - Progressive sizing with adjusted spacing */}
-          <p className="text-lg sm:text-2xl md:text-3xl font-light text-white/90 mb-8 sm:mb-12 md:mb-16 tracking-wide leading-relaxed">
-            One Flavourful Sip at a Time
-          </p>
-
-          {/* CTA Buttons - Auto width based on text content */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+          {/* CTA Buttons - Light styling */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link
               to="/visit"
-              className="px-8 sm:px-10 py-3 sm:py-4 border-2 border-white/60 text-white font-light tracking-widest text-xs sm:text-sm rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500"
+              className="px-6 sm:px-8 py-2 sm:py-3 border border-white/60 text-white font-normal tracking-widest text-[10px] sm:text-xs rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500"
             >
               Experience Kaley
             </Link>
             <Link
               to="/buy"
-              className="px-8 sm:px-10 py-3 sm:py-4 border-2 border-white/60 text-white font-light tracking-widest text-xs sm:text-sm rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500"
+              className="px-6 sm:px-8 py-2 sm:py-3 border border-white/60 text-white font-normal tracking-widest text-[10px] sm:text-xs rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500"
             >
               Our Teas
             </Link>
           </div>
         </div>
 
-        {/* Scroll indicator - adjusted position for mobile */}
+        {/* Scroll indicator */}
         <button
           onClick={() => document.getElementById('journey')?.scrollIntoView({ behavior: 'smooth' })}
           className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 animate-bounce-slow cursor-pointer hover:opacity-80 transition-opacity"
@@ -60,16 +58,16 @@ function Home() {
       {/* Three Healing Journeys - Premium Section */}
       <section id="journey" className="py-24 md:py-32 relative overflow-hidden">
         {/* Decorative Background Elements */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-[#1a4d2e]/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#c9a66b]/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-[#3d4a3a]/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#a86d4d]/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Section Header */}
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#1a4d2e] tracking-wide">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#3d4a3a] tracking-wide">
               Your Healing Journey
             </h2>
-            <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-[#c9a66b] to-transparent mx-auto mt-8"></div>
+            <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-[#a86d4d] to-transparent mx-auto mt-8"></div>
           </div>
 
           {/* Journey Cards */}
@@ -80,7 +78,7 @@ function Home() {
               description="Immerse yourself in our peaceful forest retreat where nature restores your spirit"
               href="/visit"
               bgImage={visitHealCard}
-              accent="from-emerald-600/80 to-emerald-900/90"
+              accent="from-[#3d4a3a]/80 to-[#2a332d]/90"
             />
             <JourneyCardLink
               icon={<Coffee className="w-10 h-10" strokeWidth={1} />}
@@ -88,7 +86,7 @@ function Home() {
               description="Experience the transformative power of organic tea crafted with intention"
               href="/buy"
               bgImage={buySipHealCard}
-              accent="from-amber-700/80 to-amber-900/90"
+              accent="from-[#a86d4d]/80 to-[#7a4f38]/90"
             />
             <JourneyCardLink
               icon={<Heart className="w-10 h-10" strokeWidth={1} />}
@@ -96,7 +94,7 @@ function Home() {
               description="Join a community dedicated to wellness, sustainability, and mindful living"
               href="/connect"
               bgImage={connectHealCard}
-              accent="from-teal-600/80 to-teal-900/90"
+              accent="from-[#5a6b5e]/80 to-[#3d4a3a]/90"
             />
           </div>
         </div>
@@ -237,7 +235,7 @@ function Home() {
           </div>
         </div>
       </footer>
-    </div>
+    </div >
   );
 }
 

@@ -1,6 +1,7 @@
-import { MessageCircle, MapPin } from 'lucide-react';
+import { LocalContactIcon, GlobalIcon, LocationPinIcon, LeafAccentIcon, OrganicLine } from '../components/icons/KaleyIcons';
 import Products from '../components/Products';
 import BulkOrderForm from '../components/BulkOrderForm';
+import Footer from '../components/ui/Footer';
 import heroBackground from '../assets/images/22.jpg';
 
 const tasteLocations = [
@@ -15,7 +16,7 @@ const tasteLocations = [
 export default function BuySipHeal() {
   return (
     <div className="bg-[#faf8f5] text-[#1e2a24]">
-      <section className="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center justify-center py-32 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover"
           style={{
@@ -28,11 +29,12 @@ export default function BuySipHeal() {
         </div>
 
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl animate-fade-in">
-          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-wide leading-relaxed mb-8 sm:mb-12 md:mb-16">
+          <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light text-white tracking-wide leading-relaxed mb-6">
             <span className="text-[#d4b896]">Buy</span>, <span className="text-[#d4b896]">Sip</span> & <span className="text-[#d4b896]">Heal</span>
-            <br />
-            <span className="text-base sm:text-xl md:text-2xl lg:text-3xl text-white/80">Bring the forest home to you</span>
           </h1>
+          <p className="text-xl md:text-2xl font-light text-white/80 leading-loose max-w-2xl mx-auto">
+            Bring the forest home to you
+          </p>
         </div>
       </section>
 
@@ -41,6 +43,13 @@ export default function BuySipHeal() {
           <Products />
         </div>
       </section>
+
+      {/* Decorative divider */}
+      <div className="flex items-center justify-center gap-6 py-8">
+        <OrganicLine className="w-24 text-[#c9a66b]/40" />
+        <LeafAccentIcon className="w-10 h-10 text-[#c9a66b]/30 transform rotate-45" strokeWidth={0.8} />
+        <OrganicLine className="w-24 text-[#c9a66b]/40" />
+      </div>
 
       <section className="py-32 md:py-40 bg-white/40">
         <div className="max-w-6xl mx-auto px-6">
@@ -51,7 +60,7 @@ export default function BuySipHeal() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
             <div className="text-center">
               <div className="mb-8 flex justify-center">
-                <MessageCircle className="w-16 h-16 text-[#1a4d2e]" strokeWidth={0.8} />
+                <LocalContactIcon className="w-16 h-16 text-[#1a4d2e]" strokeWidth={0.8} />
               </div>
               <h3 className="text-3xl font-light text-[#1a4d2e] mb-8 tracking-wide">
                 Sri Lanka
@@ -75,7 +84,7 @@ export default function BuySipHeal() {
 
             <div className="text-center">
               <div className="mb-8 flex justify-center">
-                <MapPin className="w-16 h-16 text-[#1a4d2e]" strokeWidth={0.8} />
+                <GlobalIcon className="w-16 h-16 text-[#1a4d2e]" strokeWidth={0.8} />
               </div>
               <h3 className="text-3xl font-light text-[#1a4d2e] mb-8 tracking-wide">
                 International
@@ -113,6 +122,13 @@ export default function BuySipHeal() {
         </div>
       </section>
 
+      {/* Decorative divider */}
+      <div className="flex items-center justify-center gap-6 py-8">
+        <OrganicLine className="w-24 text-[#c9a66b]/40" />
+        <LeafAccentIcon className="w-10 h-10 text-[#c9a66b]/30 transform -rotate-45" strokeWidth={0.8} />
+        <OrganicLine className="w-24 text-[#c9a66b]/40" />
+      </div>
+
       <section className="py-32 md:py-40 bg-white/40">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-5xl md:text-6xl font-light text-[#1a4d2e] mb-20 text-center tracking-wide">
@@ -123,7 +139,7 @@ export default function BuySipHeal() {
             {tasteLocations.map((location, index) => (
               <div key={index} className="text-center group">
                 <div className="mb-6 flex justify-center">
-                  <MapPin className="w-10 h-10 text-[#1a4d2e] group-hover:scale-110 transition-transform duration-700" strokeWidth={1} />
+                  <LocationPinIcon className="w-10 h-10 text-[#1a4d2e] group-hover:scale-110 transition-transform duration-700" strokeWidth={1} />
                 </div>
                 <h3 className="text-xl font-light text-[#1a4d2e] mb-2 tracking-wide">
                   {location.name}
@@ -135,34 +151,8 @@ export default function BuySipHeal() {
         </div>
       </section>
 
-      <footer className="border-t border-[#1a4d2e]/10 py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="text-xl font-light tracking-[0.3em] text-[#1a4d2e]">
-              KALEY TEA
-            </div>
-
-            <div className="flex items-center gap-10 font-light text-sm tracking-wider text-[#5a6b62]">
-              <a href="/" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                Home
-              </a>
-              <a href="/visit" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                Visit
-              </a>
-              <a href="/buy" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                Buy
-              </a>
-              <a href="#" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                Contact
-              </a>
-            </div>
-
-            <div className="text-sm font-light text-[#5a6b62] tracking-wide">
-              Sri Lanka · Organic · Healing
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

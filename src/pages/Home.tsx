@@ -1,5 +1,8 @@
-import { Leaf, Coffee, Heart, BookOpen, ChevronDown } from 'lucide-react';
+import { Leaf, Coffee, Heart, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { LeafAccentIcon, OrganicLine } from '../components/icons/KaleyIcons';
+import LeafButton from '../components/ui/LeafButton';
+import Footer from '../components/ui/Footer';
 import heroBackground from '../assets/images/03.jpg';
 import visitHealCard from '../assets/images/visit-heal-card.png';
 import buySipHealCard from '../assets/images/buy-sip-heal-card.png';
@@ -22,36 +25,31 @@ function Home() {
 
                 <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl animate-fade-in">
                     {/* Unified Hero Statement - Light text on dark background */}
-                    <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-wide leading-relaxed mb-8 sm:mb-12 md:mb-16">
-                        Healing One <span className="text-[#d4b896]">Forest</span>, One <span className="text-[#d4b896]">Community</span>, and <span className="text-[#d4b896] italic">You</span>
+                    <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light text-white tracking-wide leading-relaxed mb-8 sm:mb-12 md:mb-16">
+                        Healing <span className="text-[#d4b896]">One Forest</span>, <span className="text-[#d4b896]">One Community</span>, and <span className="text-[#d4b896]">You</span>
                         <br />
                         <span className="text-white/80">One Flavourful Sip at a Time</span>
                     </h1>
 
-                    {/* CTA Buttons - Light styling */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                        <Link
-                            to="/visit"
-                            className="px-6 sm:px-8 py-2 sm:py-3 border border-white/60 text-white font-normal tracking-widest text-[10px] sm:text-xs rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500"
-                        >
-                            Experience Kaley
-                        </Link>
-                        <Link
-                            to="/buy"
-                            className="px-6 sm:px-8 py-2 sm:py-3 border border-white/60 text-white font-normal tracking-widest text-[10px] sm:text-xs rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500"
-                        >
-                            Our Teas
-                        </Link>
+                    {/* CTA Buttons - Using LeafButton component */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12">
+                        <LeafButton to="/visit" variant="light">Experience Kaley</LeafButton>
+                        <LeafButton to="/buy" variant="light">Our Teas</LeafButton>
                     </div>
                 </div>
 
-                {/* Scroll indicator */}
+                {/* Scroll indicator - Hand-drawn style with small + large curves */}
                 <button
                     onClick={() => document.getElementById('journey')?.scrollIntoView({ behavior: 'smooth' })}
                     className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 animate-bounce-slow cursor-pointer hover:opacity-80 transition-opacity"
                     aria-label="Scroll to journey section"
                 >
-                    <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 text-white/60" strokeWidth={1} />
+                    <svg className="w-8 h-10 sm:w-10 sm:h-12 text-white/60" viewBox="0 0 40 48" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round">
+                        {/* Small inner curve */}
+                        <path d="M16 12c2 4 3 6 4 8 1-2 2-4 4-8" />
+                        {/* Large outer curve */}
+                        <path d="M10 8c5 10 8 16 10 20 2-4 5-10 10-20" />
+                    </svg>
                 </button>
             </section>
 
@@ -67,7 +65,11 @@ function Home() {
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#3d4a3a] tracking-wide">
                             Your Healing Journey
                         </h2>
-                        <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-[#a86d4d] to-transparent mx-auto mt-8"></div>
+                        <div className="flex items-center justify-center gap-6 mt-12">
+                            <OrganicLine className="w-24 text-[#a86d4d]/40" />
+                            <LeafAccentIcon className="w-8 h-8 text-[#a86d4d]/30 transform rotate-45" strokeWidth={0.8} />
+                            <OrganicLine className="w-24 text-[#a86d4d]/40" />
+                        </div>
                     </div>
 
                     {/* Journey Cards */}
@@ -129,15 +131,7 @@ function Home() {
                             </div>
 
                             <div className="pt-4">
-                                <Link
-                                    to="/about"
-                                    className="inline-flex items-center gap-3 text-[#1a4d2e] font-light tracking-wider text-sm group"
-                                >
-                                    <span className="border-b border-[#1a4d2e]/30 pb-1 group-hover:border-[#c9a66b] transition-colors duration-500">
-                                        Discover Our Full Journey
-                                    </span>
-                                    <span className="text-[#c9a66b] group-hover:translate-x-1 transition-transform duration-300">→</span>
-                                </Link>
+                                <LeafButton to="/story" variant="dark">Discover Our Full Journey</LeafButton>
                             </div>
                         </div>
 
@@ -207,34 +201,8 @@ function Home() {
                 </div>
             </section>
 
-            <footer className="border-t border-[#1a4d2e]/10 py-16">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                        <div className="text-xl font-light tracking-[0.3em] text-[#1a4d2e]">
-                            KALEY TEA
-                        </div>
-
-                        <div className="flex items-center gap-10 font-light text-sm tracking-wider text-[#5a6b62]">
-                            <Link to="/visit" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                                Visit
-                            </Link>
-                            <Link to="/buy" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                                Shop
-                            </Link>
-                            <Link to="/connect" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                                Connect
-                            </Link>
-                            <Link to="/connect" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                                Contact
-                            </Link>
-                        </div>
-
-                        <div className="text-sm font-light text-[#5a6b62] tracking-wide">
-                            Sri Lanka · Organic · Healing
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            {/* Footer */}
+            <Footer />
         </div >
     );
 }

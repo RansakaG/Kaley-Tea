@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kaley Tea – Development Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Kaley Tea Development Guide - Visit, Buy, Connect & Heal with nature and community">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --forest-deep: #1a4d2e;
+            --forest-dark: #0d2818;
+            --forest-light: #2d6b45;
+            --terracotta: #c17f59;
+            --terracotta-light: #d49a7a;
+            --cream: #faf8f5;
+            --cream-dark: #f0ece5;
+            --gold: #c9a66b;
+            --gold-light: #e0cba3;
+            --gold-dark: #a88a4a;
+            --text-dark: #1e2a24;
+            --text-muted: #5a6b62;
+            --white: #ffffff;
+            --shadow-soft: 0 4px 20px rgba(26, 77, 46, 0.06);
+            --shadow-medium: 0 8px 32px rgba(26, 77, 46, 0.12);
+            --shadow-strong: 0 16px 48px rgba(26, 77, 46, 0.18);
+            --shadow-gold: 0 4px 16px rgba(201, 166, 107, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+            background-attachment: fixed;
+            color: var(--text-dark);
+            line-height: 1.75;
+        }
+
+        /* === HEADER === */
+        header {
+            background: linear-gradient(135deg, #1a4d2e 0%, #0d2818 50%, #1a4d2e 100%);
+            color: var(--white);
+            padding: 55px 20px 45px;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-content .pre-title {
+            margin: 0;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: 0.9;
+        }
+
+        .header-content h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-divider {
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 8px 0;
+        }
+
+        .header-content .tagline {
+            margin: 0;
+            font-size: 1.1rem;
+            font-style: italic;
+            font-weight: 300;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+        }
+
+        .version-badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: rgba(201, 166, 107, 0.2);
+            border: 1px solid rgba(201, 166, 107, 0.4);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--gold-light);
+        }
+
+        /* === SECTION === */
+        section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 70px 24px;
+        }
+
+        /* === CARDS === */
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px 45px;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 40px;
+            border: 1px solid rgba(201, 166, 107, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(201, 166, 107, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-medium);
+            transform: translateY(-6px);
+            border-color: rgba(201, 166, 107, 0.3);
+        }
+
+        /* === TYPOGRAPHY === */
+        h2 {
+            color: var(--forest-deep);
+            margin-bottom: 24px;
+            font-weight: 700;
+            font-size: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        h3 {
+            color: var(--forest-deep);
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        h4 {
+            color: var(--forest-deep);
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        p {
+            line-height: 1.85;
+            font-weight: 400;
+            color: var(--text-dark);
+        }
+
+        /* === LISTS === */
+        .list {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .list li {
+            padding: 14px 0 14px 24px;
+            font-weight: 400;
+            border-bottom: 1px solid rgba(201, 166, 107, 0.15);
+            position: relative;
+        }
+
+        .list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.6rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .list li:last-child {
+            border-bottom: none;
+        }
+
+        .list li b {
+            color: var(--forest-deep);
+            font-weight: 600;
+        }
+
+        /* Nested list */
+        .list .nested-list {
+            margin: 10px 0 0 15px;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .list .nested-list li {
+            padding: 8px 0 8px 20px;
+            border-bottom: none;
+            font-size: 0.95rem;
+        }
+
+        .list .nested-list li::before {
+            content: '→';
+            color: var(--terracotta);
+            font-size: 0.8rem;
+        }
+
+        /* === SPECIAL SECTIONS === */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(201, 166, 107, 0.08) 0%, rgba(201, 166, 107, 0.03) 100%);
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 3px solid var(--gold);
+            box-shadow: inset 0 0 20px rgba(201, 166, 107, 0.05);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(193, 127, 89, 0.08) 0%, rgba(193, 127, 89, 0.03) 100%);
+            padding: 18px 24px;
+            border-radius: 12px;
+            border-left: 3px solid var(--terracotta);
+            box-shadow: inset 0 0 20px rgba(193, 127, 89, 0.05);
+        }
+
+        .note-box {
+            background: #fff3cd;
+            padding: 18px 24px;
+            border-radius: 12px;
+            border-left: 4px solid #ff9800;
+            margin: 20px 0;
+        }
+
+        .message-box {
+            background: linear-gradient(135deg, var(--forest-deep) 0%, #2d6b45 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-box::before {
+            content: '💚';
+            position: absolute;
+            font-size: 6rem;
+            right: -0.5rem;
+            bottom: -1.5rem;
+            opacity: 0.1;
+        }
+
+        .message-box p {
+            color: white;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+            margin: 0;
+        }
+
+        /* === SUBSECTION CARDS === */
+        .subsection-card {
+            background: var(--cream);
+            padding: 20px 25px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border: 1px solid rgba(26, 77, 46, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .subsection-card:hover {
+            border-color: rgba(201, 166, 107, 0.3);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .subsection-card h4 {
+            margin: 0 0 10px 0;
+            color: var(--forest-deep);
+        }
+
+        /* === SECTION DIVIDER === */
+        .section-divider {
+            border-left: 4px solid var(--forest-deep);
+            padding-left: 20px;
+            margin: 40px 0;
+        }
+
+        .section-divider.terracotta {
+            border-left-color: var(--terracotta);
+        }
+
+        .section-divider.gold {
+            border-left-color: var(--gold);
+        }
+
+        /* === GRID LAYOUT === */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        @media (max-width: 768px) {
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 25px 20px;
+            }
+
+            .header-content h1 {
+                font-size: 2rem;
+                letter-spacing: 4px;
+            }
+        }
+
+        /* === MENU CARDS === */
+        .menu-card {
+            background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-light) 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .menu-card .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .menu-card h4 {
+            color: white;
+            margin: 0;
+        }
+
+        .menu-card.terracotta {
+            background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-light) 100%);
+        }
+
+        .menu-card.gold {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
+        }
+
+        .menu-card.forest-light {
+            background: linear-gradient(135deg, #2d6b45 0%, #4a9d6e 100%);
+        }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--text-muted);
+            font-weight: 400;
+            background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-dark) 100%);
+            border-top: 3px solid var(--gold);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 166, 107, 0.3), transparent);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
+        footer strong {
+            color: var(--gold-light);
+        }
+
+        /* === QUICK NAV === */
+        .quick-nav {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px 35px;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 40px;
+            border: 1px solid rgba(201, 166, 107, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quick-nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+        }
+
+        .quick-nav h3 {
+            margin: 0 0 20px 0;
+            text-align: center;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .nav-item {
+            background: var(--cream);
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--forest-deep);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            border-color: var(--gold);
+            background: var(--white);
+            box-shadow: var(--shadow-gold);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <p class="pre-title">✦ Development Guide ✦</p>
+            <h1>KALEY WEB</h1>
+            <div class="header-divider"></div>
+            <div class="tagline">"Visit • Buy • Connect • Heal"</div>
+            <span class="version-badge">Final Version: 13th December 2025</span>
+        </div>
+    </header>
+
+    <section>
+
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+            <h3>🧭 Quick Navigation</h3>
+            <div class="nav-grid">
+                <a href="#section1" class="nav-item">Visit & Heal</a>
+                <a href="#section2" class="nav-item">Connect & Heal</a>
+                <a href="#section3" class="nav-item">Core Message</a>
+                <a href="#section5" class="nav-item">Why Choose Us</a>
+                <a href="#section6" class="nav-item">How To</a>
+                <a href="#section7" class="nav-item">Main Menu</a>
+            </div>
+        </div>
+
+        <!-- Section 1: Primary Visitor Actions -->
+        <div id="section1" class="card">
+            <h2>🌿 1. Primary Visitor Actions</h2>
+
+            <div class="section-divider">
+                <h3 style="margin-top:0;margin-bottom:15px;font-size:1.4rem;">Visit & Heal – Experience Us By:</h3>
+
+                <div class="subsection-card">
+                    <h4>🌄 Touring with us:</h4>
+                    <ul class="list">
+                        <li>Tour our Tea Garden</li>
+                        <li>Watch our artisans handcraft tea</li>
+                        <li>Make your own tea</li>
+                        <li>Meet our community</li>
+                        <li>Trek through our forest</li>
+                    </ul>
+                </div>
+
+                <div class="subsection-card">
+                    <h4>🏡 Living with us:</h4>
+                    <ul class="list">
+                        <li>Ideally for 2 days or more</li>
+                        <li>We encourage and incentivize visitors to stay 2+ days to truly experience Kaley</li>
+                        <li>We will NOT discourage visitors wishing to stay one night</li>
+                    </ul>
+                </div>
+
+                <div class="subsection-card">
+                    <h4>🗺️ Visiting places of interest nearby</h4>
+                </div>
+            </div>
+
+            <div class="section-divider terracotta">
+                <h3 style="margin-top:0;margin-bottom:15px;font-size:1.4rem;">Buy, Sip & Heal</h3>
+                <ul class="list">
+                    <li><b>Products we offer</b></li>
+                    <li><b>How to buy</b></li>
+                    <li><b>Where to taste</b></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 2: Connect & Heal -->
+        <div id="section2" class="card">
+            <h2>🤝 2. Connect & Heal</h2>
+
+            <div class="grid-2">
+                <div class="subsection-card">
+                    <h4>🌳 Restore Nature</h4>
+                    <p style="margin:0 0 10px 0;font-size:0.95rem;color:var(--text-muted);">Work with nature and
+                        conservation efforts</p>
+                    <ul class="list">
+                        <li>Are you a researcher?</li>
+                        <li>Are you a student?</li>
+                        <li>Are you a conservationist who wants to share your expertise with us?</li>
+                        <li>Do you want to volunteer?</li>
+                    </ul>
+                </div>
+
+                <div class="subsection-card">
+                    <h4>🤝 Uplift Communities</h4>
+                    <p style="margin:0 0 10px 0;font-size:0.95rem;color:var(--text-muted);">Work with our community and
+                        support social initiatives</p>
+                    <ul class="list">
+                        <li>Are you a researcher?</li>
+                        <li>Are you a student?</li>
+                        <li>Are you a community activist?</li>
+                        <li>Do you want to volunteer?</li>
+                    </ul>
+                </div>
+
+                <div class="subsection-card">
+                    <h4>🌾 Grow Crops</h4>
+                    <p style="margin:0 0 10px 0;font-size:0.95rem;color:var(--text-muted);">Agricultural participation
+                        and learning</p>
+                    <ul class="list">
+                        <li>Are you a researcher?</li>
+                        <li>Are you a student?</li>
+                        <li>Do you have specialized knowledge in:
+                            <ul class="list nested-list">
+                                <li>Agriculture, organic agriculture, regenerative agriculture</li>
+                                <li>Agro-forestry</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="subsection-card">
+                    <h4>🧪 Develop Products</h4>
+                    <p style="margin:0 0 10px 0;font-size:0.95rem;color:var(--text-muted);">Value-added manufacturing
+                        expertise</p>
+                    <ul class="list">
+                        <li>Do you have specialized knowledge in:
+                            <ul class="list nested-list">
+                                <li>Value-added manufacturing</li>
+                                <li>International marketing</li>
+                                <li>Product development</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="subsection-card">
+                    <h4>📚 Join Our Programmes</h4>
+                    <p style="margin:0 0 10px 0;font-size:0.95rem;color:var(--text-muted);">Residential programmes -
+                        finding and leading programmes</p>
+                    <ul class="list">
+                        <li>Do you want to join a programme?</li>
+                        <li>Do you want to lead a programme or share your expertise as co-faculty?</li>
+                        <li>Do you want to observe and learn?</li>
+                    </ul>
+                </div>
+
+                <div class="subsection-card">
+                    <h4>💝 Donate</h4>
+                    <p style="margin:0 0 10px 0;font-size:0.95rem;color:var(--text-muted);">Financial support and
+                        donations</p>
+                    <ul class="list">
+                        <li>Support our healing mission financially</li>
+                        <li>Become a sponsor or donor</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Core Message -->
+        <div id="section3" class="card">
+            <h2>💚 3. Core Message</h2>
+
+            <div class="message-box">
+                <p>
+                    We are always overjoyed when someone wants to <strong>"join our journey and heal together"</strong>.
+                    You may want to restore nature and help the forest heal. You may want to help uplift our local rural
+                    community.
+                    You may want to enhance our agricultural practices related to organic practices, regeneration of
+                    soil,
+                    improving plant health, creating an agro-forest environment. You may want to develop new products
+                    together
+                    and/or share your expertise in manufacturing. You may want to help improve our traceability systems,
+                    help us in obtaining and renewing certifications, partner with us to market our products
+                    internationally,
+                    spread the Kaley message around the world, or donate and support our work financially. You may want
+                    to
+                    share your expertise in any other space or learn by joining our residential programmes. There are
+                    numerous
+                    ways we could heal together – <strong>come, join our healing journey</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 4: Important Notes -->
+        <div id="section4" class="card">
+            <h2>⚠️ 4. Important Notes</h2>
+
+            <div class="note-box">
+                <p style="margin:0;"><b>⚠️ IMPORTANT:</b> The site should first promote <b>"VISIT & HEAL"</b> without
+                    making tea
+                    buyers feel they are less important.</p>
+            </div>
+        </div>
+
+        <!-- Section 5: Why Should You Do This? -->
+        <div id="section5" class="card">
+            <h2>✨ 5. Why Should You Do This?</h2>
+
+            <div class="subsection-card">
+                <h4>🌿 Because of Who We Are and the Work We Do</h4>
+                <ul class="list">
+                    <li>Our purpose is meaningful to you</li>
+                    <li>How organic tea heals you and is good for everyone</li>
+                    <li>Why being certified organic matters</li>
+                    <li>How nature heals you and everyone else</li>
+                    <li>How engaging with others/communities heals you and others</li>
+                    <li>Why being certified Fairtrade matters</li>
+                    <li>Our actions show that we live our purpose every day - our journey so far</li>
+                    <li><b>We are UNIQUE - probably one of the few places in the world</b></li>
+                </ul>
+            </div>
+
+            <div class="subsection-card">
+                <h4>📸 Because of What Our Photos and Films Show You</h4>
+                <p style="font-size:1.1rem;color:var(--forest-deep);font-weight:600;margin:10px 0 0 0;">→ GALLERY</p>
+            </div>
+
+            <div class="subsection-card">
+                <h4>💬 Because of What Others Say About Us</h4>
+                <ul class="list">
+                    <li>Reviews from connoisseurs, bloggers, buyers, visitors, etc.</li>
+                    <li>Articles</li>
+                    <li>Awards</li>
+                    <li>Certifications</li>
+                </ul>
+            </div>
+
+            <div class="subsection-card">
+                <h4>🚀 Because of What We Plan to Do in the Future</h4>
+                <p style="margin:10px 0 0 0;font-size:1rem;">
+                    Offering many opportunities for <b>YOU</b> to collaborate and create meaningful impact
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 6: How Do I? -->
+        <div id="section6" class="card">
+            <h2>📋 6. How Do I?</h2>
+
+            <div class="subsection-card">
+                <h4>🏨 Book a Visit</h4>
+                <p style="margin:0 0 10px 0;font-size:0.95rem;">
+                    For tours (day/half day), to stay at our farmhouse, book for my guests (as a travel agent):
+                </p>
+                <p style="font-size:1.1rem;color:var(--forest-deep);font-weight:600;margin:0;">→ Fill booking inquiry
+                    form</p>
+            </div>
+
+            <div class="subsection-card">
+                <h4>🛒 Buy Kaley Tea and Other Products</h4>
+
+                <div style="background:#fff8e1;padding:15px;border-radius:8px;margin:15px 0;">
+                    <p style="margin:0;font-weight:600;color:var(--terracotta);">📦 BULK BUYERS:</p>
+                    <ul class="list" style="margin-bottom:0;">
+                        <li>Bulk tea buyer</li>
+                        <li>Organic food/beverage shop</li>
+                        <li>Specialty restaurant/hotel/hospital</li>
+                        <li>Company who wants to buy our products for corporate gifts</li>
+                    </ul>
+                    <p style="font-size:1rem;color:var(--forest-deep);font-weight:600;margin:15px 0 0 0;">→ Fill form
+                        and send</p>
+                </div>
+
+                <div style="background:#e8f5e9;padding:15px;border-radius:8px;margin:15px 0;">
+                    <p style="margin:0;font-weight:600;color:var(--forest-deep);">🛍️ CONSUMERS:</p>
+                    <ul class="list" style="margin-bottom:0;">
+                        <li><b>In Sri Lanka:</b> Go to our WhatsApp/FB shop or buy from shops listed below</li>
+                        <li><b>Internationally:</b> Buy from shops listed below</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection-card">
+                <h4>☕ Taste Kaley Tea</h4>
+                <ul class="list">
+                    <li>Restaurants and hotels where our teas are served</li>
+                </ul>
+            </div>
+
+            <div class="subsection-card">
+                <h4>🤝 Join Our Journey</h4>
+                <p style="margin:0;font-size:0.95rem;color:var(--text-muted);">(See Section 2 above)</p>
+            </div>
+
+            <div class="highlight-box" style="margin-top:25px;">
+                <p style="margin:0;"><b>📝 NOTE:</b> In each segment we can show how to write to us (e.g., form/email)
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 7: Proposed Main Menu Structure -->
+        <div id="section7" class="card">
+            <h2>🧭 7. Proposed Main Menu Structure</h2>
+
+            <div class="grid-2" style="margin-top:30px;">
+                <div class="menu-card">
+                    <div class="icon">🌿</div>
+                    <h4>1. Visit & Heal</h4>
+                </div>
+                <div class="menu-card terracotta">
+                    <div class="icon">☕</div>
+                    <h4>2. Buy, Sip & Heal</h4>
+                </div>
+                <div class="menu-card gold">
+                    <div class="icon">🤝</div>
+                    <h4>3. Connect & Heal</h4>
+                </div>
+                <div class="menu-card forest-light">
+                    <div class="icon">📖</div>
+                    <h4>4. Our Healing Story</h4>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>🍃 <strong>Kaley Tea</strong> – Healing One Forest, One Community and You, One Flavourful Sip at a Time 🍃
+        </p>
+    </footer>
+
+    <script>
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

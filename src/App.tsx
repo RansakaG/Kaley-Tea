@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import VisitHeal from './pages/VisitHeal';
 import BuySipHeal from './pages/BuySipHeal';
 import ConnectHeal from './pages/ConnectHeal';
+import OurStory from './pages/OurStory';
 import logoMain from './assets/images/logo-main.png';
 
 function Navigation() {
@@ -11,7 +12,7 @@ function Navigation() {
   const location = useLocation();
 
   // Pages with light hero backgrounds need dark text
-  const lightHeroPages = ['/connect'];
+  const lightHeroPages = ['/connect', '/story'];
   const needsDarkText = lightHeroPages.includes(location.pathname);
 
   useEffect(() => {
@@ -55,21 +56,29 @@ function Navigation() {
         <div className="hidden md:flex items-center gap-12 font-medium tracking-wider text-sm">
           <Link
             to="/visit"
-            className="hover:opacity-60 transition-opacity duration-500"
+            className="relative group"
           >
-            Visit
+            <span>Visit</span>
+            <span className="absolute bottom-0 left-0 w-0 h-px bg-[#d4b896] group-hover:w-full transition-all duration-500"></span>
           </Link>
-          <Link to="/buy" className="hover:opacity-60 transition-opacity duration-500">
-            Buy
+          <Link to="/buy" className="relative group">
+            <span>Buy</span>
+            <span className="absolute bottom-0 left-0 w-0 h-px bg-[#d4b896] group-hover:w-full transition-all duration-500"></span>
           </Link>
-          <Link to="/connect" className="hover:opacity-60 transition-opacity duration-500">
-            Connect
+          <Link to="/connect" className="relative group">
+            <span>Connect</span>
+            <span className="absolute bottom-0 left-0 w-0 h-px bg-[#d4b896] group-hover:w-full transition-all duration-500"></span>
+          </Link>
+          <Link to="/story" className="relative group">
+            <span>Story</span>
+            <span className="absolute bottom-0 left-0 w-0 h-px bg-[#d4b896] group-hover:w-full transition-all duration-500"></span>
           </Link>
           <Link
             to="/visit"
-            className="text-[#a86d4d] hover:opacity-70 transition-all duration-500"
+            className="relative group text-[#a86d4d]"
           >
-            Book
+            <span>Book</span>
+            <span className="absolute bottom-0 left-0 w-0 h-px bg-[#d4b896] group-hover:w-full transition-all duration-500"></span>
           </Link>
         </div>
       </div>
@@ -98,6 +107,7 @@ function App() {
         <Route path="/visit" element={<VisitHeal />} />
         <Route path="/buy" element={<BuySipHeal />} />
         <Route path="/connect" element={<ConnectHeal />} />
+        <Route path="/story" element={<OurStory />} />
       </Routes>
     </Router>
   );

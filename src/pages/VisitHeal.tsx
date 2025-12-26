@@ -1,5 +1,7 @@
-import { Leaf, Home, MapPin } from 'lucide-react';
+import { TourIcon, StayIcon, NearbyIcon, LeafAccentIcon, OrganicLine } from '../components/icons/KaleyIcons';
 import BookingForm from '../components/BookingForm';
+import LeafButton from '../components/ui/LeafButton';
+import Footer from '../components/ui/Footer';
 import visitHealHero from '../assets/images/visit-heal-hero-new.jpg';
 
 export default function VisitHeal() {
@@ -16,20 +18,17 @@ export default function VisitHeal() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
         </div>
 
-        <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl animate-fade-in">
+        <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 max-w-5xl animate-fade-in">
           {/* Hero text with white text on dark background */}
-          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white tracking-wide leading-relaxed mb-8 sm:mb-12 md:mb-16">
+          <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light text-white tracking-wide leading-relaxed mb-6">
             <span className="text-[#d4b896]">Visit</span> & <span className="text-[#d4b896]">Heal</span>
-            <br />
-            <span className="text-base sm:text-xl md:text-2xl lg:text-3xl text-white/80">Do Nothing. Just Feel.</span>
           </h1>
+          <p className="text-xl md:text-2xl font-light text-white/80 leading-loose max-w-2xl mx-auto mb-8">
+            Do Nothing. Just Feel.
+          </p>
 
-          {/* CTA Button - white styling */}
-          <button
-            className="px-6 sm:px-8 py-2 sm:py-3 border border-white/60 text-white font-normal tracking-widest text-[10px] sm:text-xs rounded-full hover:bg-white/10 hover:border-white/80 transition-all duration-500"
-          >
-            Plan Your Visit
-          </button>
+          {/* CTA Button - LeafButton component */}
+          <LeafButton to="#booking-section" variant="light">Plan Your Visit</LeafButton>
         </div>
       </section>
 
@@ -37,7 +36,7 @@ export default function VisitHeal() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12">
             <ExperienceCard
-              icon={<Leaf className="w-12 h-12" strokeWidth={1} />}
+              icon={<TourIcon className="w-12 h-12" strokeWidth={1} />}
               title="Tour with Us"
               items={[
                 'Tea garden walk',
@@ -49,14 +48,14 @@ export default function VisitHeal() {
             />
 
             <ExperienceCard
-              icon={<Home className="w-12 h-12" strokeWidth={1} />}
+              icon={<StayIcon className="w-12 h-12" strokeWidth={1} />}
               title="Live with Us"
               items={['Stay 2+ days for the full healing experience', 'Farm-to-table meals', 'Wellness rituals']}
               cta="Book your stay"
             />
 
             <ExperienceCard
-              icon={<MapPin className="w-12 h-12" strokeWidth={1} />}
+              icon={<NearbyIcon className="w-12 h-12" strokeWidth={1} />}
               title="Nearby Places"
               items={[
                 "Kandy's sacred temples",
@@ -70,51 +69,31 @@ export default function VisitHeal() {
         </div>
       </section>
 
-      <section className="py-32 md:py-40 bg-white/40">
+      <section className="py-24 md:py-32 bg-white/40">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-light tracking-wide text-[#1a4d2e] mb-6">
-              Ready to Experience
-              <br />
-              Kaley?
+          <div className="text-center mb-12">
+            <p className="text-[#c9a66b] text-sm tracking-[0.3em] uppercase mb-4">Plan Your Visit</p>
+            <h2 className="text-4xl md:text-5xl font-light tracking-wide text-[#1a4d2e] mb-6">
+              Begin Your Journey
             </h2>
-            <p className="text-[#5a6b62] font-light text-lg leading-relaxed">
-              Fill in your details below and we'll create the perfect experience for you.
+            <p className="text-[#5a6b62] font-light text-lg leading-relaxed max-w-xl mx-auto">
+              Share your preferences, and we'll craft a personalized healing experience just for you.
             </p>
+
+            {/* Decorative divider */}
+            <div className="flex items-center justify-center gap-6 mt-12 mb-8">
+              <OrganicLine className="w-24 text-[#c9a66b]/40" />
+              <LeafAccentIcon className="w-8 h-8 text-[#c9a66b]/30 transform rotate-45" strokeWidth={0.8} />
+              <OrganicLine className="w-24 text-[#c9a66b]/40" />
+            </div>
           </div>
 
           <BookingForm />
         </div>
       </section>
 
-      <footer className="border-t border-[#1a4d2e]/10 py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="text-xl font-light tracking-[0.3em] text-[#1a4d2e]">
-              KALEY TEA
-            </div>
-
-            <div className="flex items-center gap-10 font-light text-sm tracking-wider text-[#5a6b62]">
-              <a href="/" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                Home
-              </a>
-              <a href="/visit" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                Visit
-              </a>
-              <a href="#" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                Shop
-              </a>
-              <a href="#" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                Contact
-              </a>
-            </div>
-
-            <div className="text-sm font-light text-[#5a6b62] tracking-wide">
-              Sri Lanka · Organic · Healing
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
@@ -135,10 +114,11 @@ function ExperienceCard({ icon, title, items, cta }: ExperienceCardProps) {
 
       <h3 className="text-2xl font-light mb-8 tracking-wide text-[#1a4d2e]">{title}</h3>
 
-      <ul className="space-y-3 mb-8 text-[#5a6b62] font-light leading-relaxed">
+      <ul className="space-y-4 mb-10 text-[#5a6b62] font-light leading-relaxed">
         {items.map((item, index) => (
-          <li key={index} className="text-sm">
-            • {item}
+          <li key={index} className="flex items-center justify-center gap-2 text-sm">
+            <LeafAccentIcon className="w-3 h-3 text-[#c9a66b]/40 flex-shrink-0" strokeWidth={1} />
+            <span>{item}</span>
           </li>
         ))}
       </ul>

@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Sprout, Users, Wheat, Package, Calendar, Heart, X, ArrowRight } from 'lucide-react';
+import { X, ArrowRight } from 'lucide-react';
+import { RestoreNatureIcon, CommunityIcon, HarvestIcon, ProductDevIcon, ProgrammeIcon, SupportIcon, LeafAccentIcon, OrganicLine } from '../components/icons/KaleyIcons';
+import Footer from '../components/ui/Footer';
 
 export default function ConnectHeal() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -10,7 +12,7 @@ export default function ConnectHeal() {
             {/* Hero Section */}
             <section className="pt-40 pb-24 px-6">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-normal tracking-wide text-[#1a4d2e] mb-8 leading-relaxed">
+                    <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-normal tracking-wide text-[#1a4d2e] mb-8 leading-relaxed">
                         Connect & Heal
                     </h1>
                     <p className="text-xl md:text-2xl font-light text-[#5a6b62] leading-loose max-w-2xl mx-auto">
@@ -18,15 +20,22 @@ export default function ConnectHeal() {
                     </p>
                 </div>
             </section>
+            {/* Decorative divider */}
+            <div className="flex items-center justify-center gap-6 py-4">
+                <OrganicLine className="w-24 text-[#c9a66b]/40" />
+                <LeafAccentIcon className="w-8 h-8 text-[#c9a66b]/30 transform rotate-45" strokeWidth={0.8} />
+                <OrganicLine className="w-24 text-[#c9a66b]/40" />
+            </div>
 
             {/* Opportunity Cards */}
             <section className="py-20 px-6">
                 <div className="max-w-6xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <OpportunityCard
-                            icon={<Sprout className="w-10 h-10" strokeWidth={1} />}
+                            icon={<RestoreNatureIcon className="w-10 h-10" strokeWidth={1} />}
                             title="Restore Nature"
-                            description="For researchers, conservationists"
+                            description="Help restore Sri Lanka's rainforest ecosystems. Work alongside ecologists to reforest degraded land and protect biodiversity."
+                            audience="For researchers, students, conservationists & volunteers"
                             onClick={() => {
                                 setSelectedInterest('Restore Nature');
                                 setIsModalOpen(true);
@@ -34,9 +43,10 @@ export default function ConnectHeal() {
                         />
 
                         <OpportunityCard
-                            icon={<Users className="w-10 h-10" strokeWidth={1} />}
+                            icon={<CommunityIcon className="w-10 h-10" strokeWidth={1} />}
                             title="Uplift Communities"
-                            description="For community activists, volunteers"
+                            description="Support social initiatives and work alongside our local rural community to create lasting positive change."
+                            audience="For researchers, students, community activists & volunteers"
                             onClick={() => {
                                 setSelectedInterest('Uplift Communities');
                                 setIsModalOpen(true);
@@ -44,9 +54,10 @@ export default function ConnectHeal() {
                         />
 
                         <OpportunityCard
-                            icon={<Wheat className="w-10 h-10" strokeWidth={1} />}
+                            icon={<HarvestIcon className="w-10 h-10" strokeWidth={1} />}
                             title="Grow Crops"
-                            description="For agriculture experts"
+                            description="Enhance our agricultural practices through organic farming, soil regeneration, and agro-forestry techniques."
+                            audience="For agriculture, organic & regenerative farming experts"
                             onClick={() => {
                                 setSelectedInterest('Grow Crops');
                                 setIsModalOpen(true);
@@ -54,9 +65,10 @@ export default function ConnectHeal() {
                         />
 
                         <OpportunityCard
-                            icon={<Package className="w-10 h-10" strokeWidth={1} />}
+                            icon={<ProductDevIcon className="w-10 h-10" strokeWidth={1} />}
                             title="Develop Products"
-                            description="For manufacturing experts"
+                            description="Collaborate on value-added manufacturing, product development, and international marketing initiatives."
+                            audience="For manufacturing, marketing & product development experts"
                             onClick={() => {
                                 setSelectedInterest('Develop Products');
                                 setIsModalOpen(true);
@@ -64,9 +76,10 @@ export default function ConnectHeal() {
                         />
 
                         <OpportunityCard
-                            icon={<Calendar className="w-10 h-10" strokeWidth={1} />}
+                            icon={<ProgrammeIcon className="w-10 h-10" strokeWidth={1} />}
                             title="Join Programmes"
-                            description="Residential programmes"
+                            description="Participate in immersive residential programmes. Join as a participant, lead as co-faculty, or observe and learn."
+                            audience="For participants, facilitators & lifelong learners"
                             onClick={() => {
                                 setSelectedInterest('Join Programmes');
                                 setIsModalOpen(true);
@@ -74,9 +87,10 @@ export default function ConnectHeal() {
                         />
 
                         <OpportunityCard
-                            icon={<Heart className="w-10 h-10" strokeWidth={1} />}
+                            icon={<SupportIcon className="w-10 h-10" strokeWidth={1} />}
                             title="Support Us"
-                            description="Donations and sponsorship"
+                            description="Support our healing mission financially. Your contribution helps us restore forests and uplift communities."
+                            audience="For donors, sponsors & supporters"
                             onClick={() => {
                                 setSelectedInterest('Support Us');
                                 setIsModalOpen(true);
@@ -96,34 +110,7 @@ export default function ConnectHeal() {
             )}
 
             {/* Footer */}
-            <footer className="border-t border-[#1a4d2e]/10 py-16 mt-20">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                        <div className="text-xl font-light tracking-[0.3em] text-[#1a4d2e]">
-                            KALEY TEA
-                        </div>
-
-                        <div className="flex items-center gap-10 font-light text-sm tracking-wider text-[#5a6b62]">
-                            <a href="/" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                                Home
-                            </a>
-                            <a href="/visit" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                                Visit
-                            </a>
-                            <a href="#" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                                Shop
-                            </a>
-                            <a href="#" className="hover:text-[#1a4d2e] transition-colors duration-500">
-                                Contact
-                            </a>
-                        </div>
-
-                        <div className="text-sm font-light text-[#5a6b62] tracking-wide">
-                            Sri Lanka · Organic · Healing
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }
@@ -132,10 +119,11 @@ interface OpportunityCardProps {
     icon: React.ReactNode;
     title: string;
     description: string;
+    audience?: string;
     onClick: () => void;
 }
 
-function OpportunityCard({ icon, title, description, onClick }: OpportunityCardProps) {
+function OpportunityCard({ icon, title, description, audience, onClick }: OpportunityCardProps) {
     return (
         <div
             onClick={onClick}
@@ -149,9 +137,15 @@ function OpportunityCard({ icon, title, description, onClick }: OpportunityCardP
                 {title}
             </h3>
 
-            <p className="text-sm font-light text-[#5a6b62] mb-6 text-center leading-relaxed">
+            <p className="text-sm font-light text-[#5a6b62] mb-4 text-center leading-relaxed">
                 {description}
             </p>
+
+            {audience && (
+                <p className="text-xs font-light text-[#c9a66b] mb-6 text-center tracking-wide italic">
+                    {audience}
+                </p>
+            )}
 
             <div className="text-[#c9a66b] text-sm tracking-wider flex items-center justify-center gap-2 font-light opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                 Learn more <ArrowRight className="w-4 h-4" />

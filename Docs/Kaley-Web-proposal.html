@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Kaley Tea – Website Project Proposal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --forest-deep: #1a4d2e;
+      --forest-dark: #0d2818;
+      --forest-light: #2d6b45;
+      --terracotta: #c17f59;
+      --terracotta-light: #d49a7a;
+      --cream: #faf8f5;
+      --cream-dark: #f0ece5;
+      --gold: #c9a66b;
+      --gold-light: #e0cba3;
+      --gold-dark: #a88a4a;
+      --text-dark: #1e2a24;
+      --text-muted: #5a6b62;
+      --white: #ffffff;
+      --shadow-soft: 0 4px 20px rgba(26, 77, 46, 0.06);
+      --shadow-medium: 0 8px 32px rgba(26, 77, 46, 0.12);
+      --shadow-strong: 0 16px 48px rgba(26, 77, 46, 0.18);
+      --shadow-gold: 0 4px 16px rgba(201, 166, 107, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+      background-attachment: fixed;
+      color: var(--text-dark);
+      line-height: 1.75;
+    }
+
+    /* === HEADER === */
+    header {
+      background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-dark) 50%, var(--forest-deep) 100%);
+      color: var(--white);
+      padding: 55px 20px 45px;
+      text-align: center;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-size: 1rem;
+      font-weight: 400;
+      opacity: .9;
+    }
+
+    .tagline {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold);
+      z-index: 1;
+    }
+
+    /* === SECTION === */
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 70px 24px;
+    }
+
+    /* === CARDS === */
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px 45px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 40px;
+      border: 1px solid rgba(201, 166, 107, 0.15);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(201, 166, 107, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-medium);
+      transform: translateY(-6px);
+      border-color: rgba(201, 166, 107, 0.3);
+    }
+
+    /* === TYPOGRAPHY === */
+    h2 {
+      color: var(--forest-deep);
+      margin-bottom: 24px;
+      font-weight: 700;
+      font-size: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+
+    h3 {
+      color: var(--forest-deep);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    h4 {
+      color: var(--forest-deep);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    p {
+      line-height: 1.85;
+      font-weight: 400;
+      color: var(--text-dark);
+    }
+
+    /* === LISTS === */
+    .list {
+      margin: 20px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding: 14px 0 14px 24px;
+      font-weight: 400;
+      border-bottom: 1px solid rgba(201, 166, 107, 0.15);
+      position: relative;
+    }
+
+    .list li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .list li:last-child {
+      border-bottom: none;
+    }
+
+    .list li b {
+      color: var(--forest-deep);
+      font-weight: 600;
+    }
+
+    /* === ACCORDION === */
+    .accordion button {
+      width: 100%;
+      padding: 20px 28px;
+      border: 1px solid rgba(201, 166, 107, 0.2);
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--white) 0%, rgba(250, 248, 245, 0.8) 100%);
+      color: var(--forest-deep);
+      text-align: left;
+      cursor: pointer;
+      font-size: 1.05rem;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      letter-spacing: 0.3px;
+    }
+
+    .accordion button:hover {
+      background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+      border-color: var(--gold);
+      box-shadow: var(--shadow-gold);
+      transform: translateY(-3px);
+    }
+
+    .panel {
+      display: none;
+      padding: 28px 32px 24px;
+      color: var(--text-dark);
+      font-weight: 400;
+      background: var(--white);
+      border-radius: 0 0 12px 12px;
+      margin-top: -8px;
+      border: 1px solid rgba(201, 166, 107, 0.15);
+      border-top: none;
+      box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    /* === BADGES === */
+    .badge {
+      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+      color: var(--white);
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: var(--shadow-gold);
+      text-transform: uppercase;
+    }
+
+    /* === MERMAID CONTAINER === */
+    .mermaid-container {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px 45px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 40px;
+      border: 1px solid rgba(201, 166, 107, 0.15);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mermaid-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+    }
+
+    .mermaid-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(201, 166, 107, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .mermaid-container:hover {
+      box-shadow: var(--shadow-medium);
+      transform: translateY(-6px);
+      border-color: rgba(201, 166, 107, 0.3);
+    }
+
+    .map-title {
+      text-align: left;
+      color: var(--forest-deep);
+      margin-bottom: 20px;
+      font-size: 1.9rem;
+      font-weight: 700;
+    }
+
+    /* === FOOTER === */
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      color: var(--text-muted);
+      font-weight: 400;
+      background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-dark) 100%);
+      border-top: 3px solid var(--gold);
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 166, 107, 0.3), transparent);
+    }
+
+    footer p,
+    footer {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    footer strong {
+      color: var(--gold-light);
+    }
+
+    /* === SPECIAL SECTIONS === */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(201, 166, 107, 0.08) 0%, rgba(201, 166, 107, 0.03) 100%);
+      padding: 24px;
+      border-radius: 12px;
+      border-left: 3px solid var(--gold);
+      box-shadow: inset 0 0 20px rgba(201, 166, 107, 0.05);
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, rgba(193, 127, 89, 0.08) 0%, rgba(193, 127, 89, 0.03) 100%);
+      padding: 18px 24px;
+      border-radius: 12px;
+      border-left: 3px solid var(--terracotta);
+      box-shadow: inset 0 0 20px rgba(193, 127, 89, 0.05);
+    }
+
+    /* === UTILITY CLASSES === */
+    .bg-forest {
+      background-color: var(--forest-deep);
+      color: var(--white);
+    }
+
+    .bg-terracotta {
+      background-color: var(--terracotta);
+      color: var(--white);
+    }
+
+    .bg-cream {
+      background-color: var(--cream);
+    }
+
+    .bg-gold {
+      background-color: var(--gold);
+      color: var(--white);
+    }
+
+    .text-forest {
+      color: var(--forest-deep);
+    }
+
+    .text-terracotta {
+      color: var(--terracotta);
+    }
+
+    .text-gold {
+      color: var(--gold);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-content">
+      <p class="pre-title">✦ Website Proposal ✦</p>
+      <h1>KALEY TEA</h1>
+      <div class="header-divider"></div>
+      <div class="tagline">"Healing One Forest, One Community and You, One Flavourful Sip at a Time"</div>
+    </div>
+  </header>
+
+  <style>
+    header {
+      background: linear-gradient(135deg, #1a4d2e 0%, #0d2818 50%, #1a4d2e 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at center, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-content .pre-title {
+      margin: 0;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.9;
+    }
+
+    .header-content h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 8px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-divider {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 8px 0;
+    }
+
+    .header-content .tagline {
+      margin: 0;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+    }
+  </style>
+
+  <section>
+
+    <div class="card">
+      <h2>🌿 Project Purpose</h2>
+      <p style="font-size:1.1rem;color:var(--terracotta);font-weight:600;margin-bottom:20px;font-style:italic;">
+        "Healing One Forest, One Community and You, One Flavourful Sip at a Time"
+      </p>
+      <p>
+        The Kaley Tea website will become a digital expression of healing retreat around many cup of tea:
+      </p>
+      <ul class="list">
+        <li>Invite guests to experience our healing journey</li>
+        <li>Enable simple tea product ordering</li>
+        <li>Build a community around healing, conservation, and collaboration</li>
+      </ul>
+      <div style="background:#fff3cd;padding:15px;border-radius:8px;border-left:4px solid #ff9800;margin-top:20px;">
+        <p style="margin:0;"><b>⚠️ IMPORTANT:</b> The site should first promote <b>"VISIT & HEAL"</b> without making tea
+          buyers feel they are less important.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🎯 Core Visitor Actions</h2>
+      <ul class="list">
+        <li><b>Visit & Heal</b> — Experience our tea garden, forest, artisan tea-making, and healing retreat</li>
+        <li><b>Buy, Sip & Heal</b> — Purchase our organic teas (retail, bulk)</li>
+        <li><b>Connect & Heal</b> — Collaborate with us in restoring nature, uplifting communities, growing crops,
+          developing products, joining programmes, and supporting through donations</li>
+      </ul>
+
+      <h3 style="color:var(--forest-deep);margin-top:30px;margin-bottom:15px;">📍 Proposed Main Menu Structure</h3>
+      <ol class="list" style="font-weight:600;">
+        <li>Visit & Heal</li>
+        <li>Buy, Sip & Heal</li>
+        <li>Connect & Heal</li>
+        <li>Our Healing Story</li>
+      </ol>
+    </div>
+
+    <div class="mermaid-container">
+      <h2>🗺️ Website Navigation Map</h2>
+      <div style="text-align:center; padding:20px;">
+        <img src="kaley_mindmap_v3_1765633205524.png" alt="Kaley Tea V3 Website Structure Mind Map"
+          style="max-width:100%; height:auto; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <p style="margin-top:15px; color:#666; font-size:0.9rem; font-style:italic;">
+          V3 Final Website Structure - 4 Main Menus: Visit & Heal, Buy Sip & Heal, Connect & Heal, Our Healing Story
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📊 Navigation Map Explained</h2>
+      <p>The website is structured around <b>four main menus</b> that represent the core journeys visitors can take.
+        Each menu serves a specific purpose and target audience. Below is a detailed breakdown of every section with
+        page purposes, content descriptions, and user actions.</p>
+
+      <!-- Overview Summary -->
+      <div
+        style="background:linear-gradient(135deg, var(--forest-deep) 0%, #2d6b45 100%);color:white;padding:25px;border-radius:12px;margin:25px 0;">
+        <h3 style="color:white;margin:0 0 20px 0;text-align:center;">🏠 HOME PAGE → Four Main Journeys</h3>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:15px;text-align:center;">
+          <div style="background:rgba(255,255,255,0.15);padding:15px;border-radius:8px;">
+            <div style="font-size:1.5rem;margin-bottom:5px;">🌿</div>
+            <b>Visit & Heal</b><br>
+            <span style="font-size:0.85rem;opacity:0.9;">3 Sections</span><br>
+            <span style="font-size:0.8rem;opacity:0.7;">Experience the retreat</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);padding:15px;border-radius:8px;">
+            <div style="font-size:1.5rem;margin-bottom:5px;">☕</div>
+            <b>Buy, Sip & Heal</b><br>
+            <span style="font-size:0.85rem;opacity:0.9;">5 Sections</span><br>
+            <span style="font-size:0.8rem;opacity:0.7;">Purchase our teas</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);padding:15px;border-radius:8px;">
+            <div style="font-size:1.5rem;margin-bottom:5px;">🤝</div>
+            <b>Connect & Heal</b><br>
+            <span style="font-size:0.85rem;opacity:0.9;">6 Sections</span><br>
+            <span style="font-size:0.8rem;opacity:0.7;">Collaborate with us</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);padding:15px;border-radius:8px;">
+            <div style="font-size:1.5rem;margin-bottom:5px;">📖</div>
+            <b>Our Healing Story</b><br>
+            <span style="font-size:0.85rem;opacity:0.9;">4 Sections</span><br>
+            <span style="font-size:0.8rem;opacity:0.7;">Know who we are</span>
+          </div>
+        </div>
+        <p style="text-align:center;margin:20px 0 0 0;font-size:0.9rem;opacity:0.8;">
+          <b>Total: 18 Sections</b> across 4 main menus + Utility Pages (Contact, FAQ)
+        </p>
+      </div>
+
+      <!-- 1: Visit & Heal -->
+      <div style="border-left:4px solid #1a4d2e;padding-left:20px;margin:40px 0;">
+        <h3 style="color:var(--forest-deep);margin-top:0;margin-bottom:10px;font-size:1.4rem;">
+          🌿 1. Visit & Heal (3 Sections)
+        </h3>
+        <p
+          style="font-size:1.05rem;color:var(--terracotta);font-weight:500;margin-bottom:15px;font-style:italic;text-align:center;">
+          "Do Nothing. Just Feel."
+        </p>
+        <div style="background:#e8f5e9;padding:12px 15px;border-radius:8px;margin-bottom:20px;">
+          <p style="margin:0;"><b>Purpose:</b> Invite guests to experience Kaley's healing retreat.</p>
+          <p style="margin:5px 0 0 0;"><b>Target Audience:</b> Travelers, nature lovers, wellness seekers, tea
+            enthusiasts.</p>
+          <p style="margin:5px 0 0 0;"><b>Primary Action:</b> Book a visit (day tour or multi-day stay).</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>1. Tour with Us</b></p>
+          <ul class="list" style="margin-top:10px;margin-bottom:0;">
+            <li>Tour our Tea Garden</li>
+            <li>Watch our artisans handcraft tea</li>
+            <li>Make your own tea</li>
+            <li>Meet our community</li>
+            <li>Trek through our forest</li>
+          </ul>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>2. Live with Us</b></p>
+          <ul class="list" style="margin-top:10px;margin-bottom:0;">
+            <li>Ideally for 2 days or more</li>
+            <li>We encourage and incentivize visitors to stay 2+ days to truly experience Kaley</li>
+            <li>One-night stays are also welcome</li>
+          </ul>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>3. Visit Places of Interest Nearby</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">Nearby attractions and points of interest</p>
+        </div>
+
+        <p style="margin-top:15px;font-size:0.95rem;color:#666;"><b>→ Booking Form → Email Confirmation</b> (for tours,
+          stays, or travel agent bookings)</p>
+      </div>
+
+      <!-- 2: Buy, Sip & Heal -->
+      <div style="border-left:4px solid var(--terracotta);padding-left:20px;margin:40px 0;">
+        <h3 style="color:var(--forest-deep);margin-top:0;margin-bottom:10px;font-size:1.4rem;">
+          ☕ 2. Buy, Sip & Heal (5 Sections)
+        </h3>
+        <p
+          style="font-size:1.05rem;color:var(--terracotta);font-weight:500;margin-bottom:15px;font-style:italic;text-align:center;">
+          "Healing One Forest, One Community and You, One Flavourful Sip at a Time"
+        </p>
+        <div style="background:#fff8e1;padding:12px 15px;border-radius:8px;margin-bottom:20px;">
+          <p style="margin:0;"><b>Purpose:</b> Enable customers to purchase Kaley's organic tea products.</p>
+          <p style="margin:5px 0 0 0;"><b>Target Audience:</b> Tea lovers, health-conscious consumers, bulk buyers,
+            retailers, hotels.</p>
+          <p style="margin:5px 0 0 0;"><b>Primary Action:</b> Browse products and place orders (via form, WhatsApp, or
+            partner shops).</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>1. Products We Offer</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">Browse our range of teas, tea sands and herbs that are
+            certified organic and fairtrade</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>2. Consumers in Sri Lanka</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">WhatsApp/FB shop or buy from listed retail shops</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>3. International Consumers</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">Buy from international partner shops listed</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>4. Buy In Bulk</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">For tea buyers, organic shops, restaurants/hotels/hospitals,
+            corporate gifts</p>
+          <p style="margin:8px 0 0 0;font-size:0.9rem;color:#666;">→ Inquiry Form → Email Confirmation</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>5. Where to Taste</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">Restaurants and hotels where our teas are served</p>
+        </div>
+      </div>
+
+      <!-- 3: Connect & Heal -->
+      <div style="border-left:4px solid var(--gold);padding-left:20px;margin:40px 0;">
+        <h3 style="color:var(--forest-deep);margin-top:0;margin-bottom:10px;font-size:1.4rem;">
+          🤝 3. Connect & Heal (6 Sections)
+        </h3>
+        <div style="background:#fce4ec;padding:12px 15px;border-radius:8px;margin-bottom:20px;">
+          <p style="margin:0;"><b>Purpose:</b> Invite collaborators, volunteers, experts, and donors to join Kaley's
+            mission.</p>
+          <p style="margin:5px 0 0 0;"><b>Target Audience:</b> Researchers, students, conservationists, manufacturers,
+            donors.</p>
+          <p style="margin:5px 0 0 0;"><b>Primary Action:</b> Submit application/inquiry to collaborate.</p>
+        </div>
+        <p style="font-style:italic;color:#555;padding:15px;background:#f5f5f5;border-radius:8px;margin-bottom:20px;">
+          "We are always overjoyed when someone wants to connect and heal together. There are numerous ways we could
+          heal together – come, connect and heal with us."
+        </p>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>1. 🌲 Restore Nature</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">For researchers, students, conservationists, volunteers</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>2. 🤝 Uplift Communities</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">For researchers, students, community activists, volunteers</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>3. 🌾 Grow Crops</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">For agriculture, organic/regenerative agriculture,
+            agro-forestry experts</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>4. 🧪 Develop Products</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">For value-added manufacturing and international marketing
+            experts</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>5. 🏡 Join Our Programmes</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">Join, lead, or observe residential programmes</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>6. 💚 Donate</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">Become a sponsor or donor to support Kaley's mission</p>
+        </div>
+
+        <p style="margin-top:15px;font-size:0.95rem;color:#666;"><b>→ Application/Inquiry Form → Email Confirmation</b>
+        </p>
+      </div>
+
+      <!-- 4: Our Healing Story -->
+      <div style="border-left:4px solid #8b5a2b;padding-left:20px;margin:40px 0;">
+        <h3 style="color:var(--forest-deep);margin-top:0;margin-bottom:10px;font-size:1.4rem;">
+          📖 4. Our Healing Story (4 Sections)
+        </h3>
+        <div style="background:#efebe9;padding:12px 15px;border-radius:8px;margin-bottom:20px;">
+          <p style="margin:0;"><b>Purpose:</b> Tell Kaley's story, build trust, and establish credibility.</p>
+          <p style="margin:5px 0 0 0;"><b>Target Audience:</b> All visitors who want to learn about Kaley before
+            engaging.</p>
+          <p style="margin:5px 0 0 0;"><b>Primary Action:</b> Read, watch, and understand the Kaley mission.</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>1. About Us</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">Company story, mission, and values</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>2. Gallery</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">Photos and videos showcasing our journey</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>3. Awards & Certifications</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">Organic and Fairtrade certifications, recognition</p>
+        </div>
+
+        <div
+          style="background:var(--cream);padding:15px;border-radius:12px;margin:15px 0;border:1px solid rgba(26, 77, 46, 0.08);">
+          <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>4. Reviews & Press</b></p>
+          <p style="margin:8px 0 0 0;font-size:0.95rem;">Customer reviews, articles, blogger features, press coverage
+          </p>
+        </div>
+      </div>
+
+      <!-- Utility Pages -->
+      <h3 style="color:var(--forest-deep);margin-top:25px;margin-bottom:15px;">📌 Utility Pages (Header/Footer)</h3>
+      <p>Support pages accessible from footer/header:</p>
+      <ul class="list">
+        <li><b>Contact</b> – Contact form and information</li>
+        <li><b>FAQ</b> – Frequently asked questions</li>
+      </ul>
+
+      <!-- Form Submission -->
+      <h3 style="color:var(--forest-deep);margin-top:25px;margin-bottom:15px;">✉️ Form Submission & Email Notifications
+      </h3>
+      <p>All forms (bookings, orders, inquiries, applications) converge to a central email notification system. Users
+        receive confirmation emails with:</p>
+      <ul class="list">
+        <li>Submission details and reference number</li>
+        <li>Next steps and expected response time</li>
+        <li>Contact information for follow-up questions</li>
+        <li>Relevant product or service information</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>🧭 Website Sections Summary</h2>
+      <ul class="list">
+        <li><b>Home</b> – Brand story + Hero CTA + Main Pathways</li>
+        <li><b>Visit & Heal</b> – Retreat experiences (tour, live, nearby places) + booking form</li>
+        <li><b>Buy, Sip & Heal</b> – 5 sections: Products, Buy in Bulk, Sri Lanka Consumers, International Consumers,
+          Where to Taste</li>
+        <li><b>Connect & Heal</b> – 6 sections: Restore Nature, Uplift Communities, Grow Crops, Develop Products, Join
+          Programmes, Donate</li>
+        <li><b>Our Healing Story</b> – 4 sections: About Us, Gallery, Awards & Certifications, Reviews & Press</li>
+      </ul>
+
+      <h3 style="color:var(--forest-deep);margin-top:25px;margin-bottom:15px;">💡 Why Should You Do This?</h3>
+      <div style="background:#f5f9f8;padding:15px;border-radius:8px;margin:15px 0;">
+        <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>Because of Who We Are and the Work We Do</b>
+        </p>
+        <ul class="list" style="margin-top:10px;">
+          <li>Our purpose is meaningful to you</li>
+          <li>How organic tea heals you (certified organic matters)</li>
+          <li>How nature heals you and everyone else</li>
+          <li>How engaging with communities heals (certified Fairtrade matters)</li>
+          <li>Our actions show we live our purpose – see our journey so far</li>
+          <li>We are UNIQUE – probably one of the few places in the world</li>
+        </ul>
+      </div>
+
+      <div style="background:#f5f9f8;padding:15px;border-radius:8px;margin:15px 0;">
+        <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>Because of What Our Photos and Films Show
+            You</b>
+        </p>
+        <p style="margin:8px 0 0 0;font-size:0.95rem;">→ GALLERY</p>
+      </div>
+
+      <div style="background:#f5f9f8;padding:15px;border-radius:8px;margin:15px 0;">
+        <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>Because of What Others Say About Us</b></p>
+        <ul class="list" style="margin-top:10px;">
+          <li>Reviews from connoisseurs, bloggers, buyers, visitors</li>
+          <li>Articles</li>
+          <li>Awards</li>
+          <li>Certifications</li>
+        </ul>
+      </div>
+
+      <div style="background:#f5f9f8;padding:15px;border-radius:8px;margin:15px 0;">
+        <p style="margin:0;font-weight:600;color:var(--forest-deep);"><b>Because of What We Plan to Do in the Future</b>
+        </p>
+        <p style="margin:8px 0 0 0;font-size:0.95rem;">Offering many opportunities for YOU to collaborate and create
+          meaningful impact</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🧾 Booking & Ordering System</h2>
+      <ul class="list">
+        <li>No payment gateways or APIs</li>
+        <li>Form submission (email notification)</li>
+        <li>Staff handles payment & follow-up offline</li>
+        <li>WhatsApp integration for local convenience</li>
+      </ul>
+    </div>
+
+    <div class="card accordion">
+      <button onclick="togglePanel(1)">
+        📦 Development Scope<span class="badge">Click to expand</span>
+      </button>
+      <div id="panel1" class="panel">
+        <ul class="list">
+          <li>Website design & development</li>
+          <li>Content management system</li>
+          <li>Booking forms</li>
+          <li>Tea shop catalog + order forms</li>
+          <li>Email confirmations</li>
+          <li>Basic SEO & analytics</li>
+          <li>Performance optimization</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card accordion">
+      <button onclick="togglePanel(2)">
+        🔧 Technology Stack <span class="badge" style="background:var(--forest-deep);">✓ CONFIRMED</span>
+      </button>
+      <div id="panel2" class="panel">
+        <div
+          style="background:linear-gradient(135deg, var(--forest-deep) 0%, #2d6b45 100%);color:white;padding:20px;border-radius:12px;margin-bottom:20px;">
+          <h3 style="color:white;margin:0 0 10px 0;text-align:center;">✅ FINALIZED: React Stack</h3>
+          <p style="text-align:center;margin:0;opacity:0.9;">Modern, scalable, and future-proof technology chosen for
+            Kaley Tea</p>
+        </div>
+
+        <h3 style="color:var(--forest-deep);margin-top:0;">Technology Stack Details</h3>
+        <ul class="list">
+          <li><b>Frontend Framework:</b> React 18+ with TypeScript</li>
+          <li><b>Styling:</b> TailwindCSS for responsive, modern UI</li>
+          <li><b>State Management:</b> React Context API</li>
+          <li><b>Backend:</b> Node.js with Express.js</li>
+          <li><b>Database:</b> PostgreSQL (form submissions, products)</li>
+          <li><b>Email Service:</b> SendGrid or Nodemailer</li>
+          <li><b>Hosting:</b> Vercel (recommended) or Netlify</li>
+          <li><b>Security:</b> SSL/TLS, environment variables, input validation</li>
+          <li><b>Performance:</b> CDN integration, image optimization, lazy loading</li>
+          <li><b>Analytics:</b> Google Analytics 4</li>
+        </ul>
+
+        <h4 style="color:var(--forest-deep);margin-top:25px;">🎯 Why React?</h4>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:15px;">
+          <div style="background:#e8f5e9;padding:15px;border-radius:8px;">
+            <b>⚡ Performance</b><br>
+            <span style="font-size:0.9rem;color:#555;">Fast load times, smooth interactions</span>
+          </div>
+          <div style="background:#e8f5e9;padding:15px;border-radius:8px;">
+            <b>📱 Responsive</b><br>
+            <span style="font-size:0.9rem;color:#555;">Seamless mobile/tablet experience</span>
+          </div>
+          <div style="background:#e8f5e9;padding:15px;border-radius:8px;">
+            <b>🔒 Security</b><br>
+            <span style="font-size:0.9rem;color:#555;">No plugin vulnerabilities</span>
+          </div>
+          <div style="background:#e8f5e9;padding:15px;border-radius:8px;">
+            <b>🚀 Scalability</b><br>
+            <span style="font-size:0.9rem;color:#555;">Easy to add features later</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accordion">
+      <button onclick="togglePanel(3)">
+        ⏱ Timeline & Workload <span class="badge">Click to expand</span>
+      </button>
+      <div id="panel3" class="panel">
+        <h3 style="color:var(--forest-deep);margin-top:0;">5-Week Full-Time Development Timeline (110 Hours)</h3>
+
+        <!-- Scope Overview -->
+        <div
+          style="background:linear-gradient(135deg, var(--forest-deep) 0%, #2d6b45 100%);color:white;padding:20px;border-radius:12px;margin-bottom:20px;">
+          <h4 style="color:white;margin:0 0 15px 0;text-align:center;">📋 Scope Overview: 18 Sections + Utility Pages
+          </h4>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;font-size:0.9rem;">
+            <div style="background:rgba(255,255,255,0.1);padding:10px;border-radius:6px;">
+              <b>🌿 Visit & Heal:</b> 3 pages<br>
+              <span style="opacity:0.8;">Tour, Live, Nearby Places</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.1);padding:10px;border-radius:6px;">
+              <b>☕ Buy, Sip & Heal:</b> 5 pages<br>
+              <span style="opacity:0.8;">Products, Bulk, SL, Intl, Taste</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.1);padding:10px;border-radius:6px;">
+              <b>🤝 Connect & Heal:</b> 6 pages<br>
+              <span style="opacity:0.8;">Nature, Community, Crops, Products, Programmes, Donate</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.1);padding:10px;border-radius:6px;">
+              <b>📖 Our Healing Story:</b> 4 pages<br>
+              <span style="opacity:0.8;">About, Gallery, Awards, Reviews</span>
+            </div>
+          </div>
+          <p style="text-align:center;margin:15px 0 0 0;font-size:0.85rem;opacity:0.8;">
+            + Home Page + Contact + FAQ = <b>21 Total Pages</b>
+          </p>
+        </div>
+
+        <div style="background:#f5f5f5;padding:15px;border-radius:8px;margin-bottom:15px;">
+          <h4 style="margin-top:0;color:var(--forest-deep);">📅 Week 1: Discovery & Setup (22 hrs)</h4>
+          <ul class="list" style="margin:10px 0;">
+            <li>Project Setup & React/TypeScript Environment</li>
+            <li>Database Schema Design (forms, products, bookings)</li>
+            <li>Sitemap Finalization: 4 menus, 18 sections</li>
+            <li>Design System & Component Library (colors, fonts, cards)</li>
+            <li>Navigation Structure (4 main menu items + footer links)</li>
+            <li>Content Templates & Asset Requirements</li>
+          </ul>
+          <p style="margin:10px 0 0 0;font-size:0.9rem;color:#666;"><b>Deliverable:</b> Project foundation ready, design
+            system documented</p>
+        </div>
+
+        <div style="background:#f5f5f5;padding:15px;border-radius:8px;margin-bottom:15px;">
+          <h4 style="margin-top:0;color:var(--forest-deep);">🎨 Week 2: Frontend - Home + Visit & Heal (22 hrs)</h4>
+          <ul class="list" style="margin:10px 0;">
+            <li><b>Home Page</b> — Hero section, 4 CTAs, responsive design</li>
+            <li><b>Navigation & Layout</b> — Header, footer, mobile menu</li>
+            <li><b>🌿 Visit & Heal (3 pages)</b>
+              <ul style="margin-left:20px;margin-top:5px;">
+                <li>Tour with Us — Activities grid, booking CTA</li>
+                <li>Live with Us — Accommodation details, gallery</li>
+                <li>Places of Interest — Map, attractions list</li>
+              </ul>
+            </li>
+            <li>Responsive Design Testing — Mobile, tablet, desktop</li>
+          </ul>
+          <p style="margin:10px 0 0 0;font-size:0.9rem;color:#666;"><b>Deliverable:</b> Home + 3 Visit & Heal pages live
+            and responsive</p>
+        </div>
+
+        <div style="background:#f5f5f5;padding:15px;border-radius:8px;margin-bottom:15px;">
+          <h4 style="margin-top:0;color:var(--forest-deep);">☕ Week 3: Frontend - Buy & Connect Branches (22 hrs)</h4>
+          <ul class="list" style="margin:10px 0;">
+            <li><b>☕ Buy, Sip & Heal (5 pages)</b>
+              <ul style="margin-left:20px;margin-top:5px;">
+                <li>Products We Offer — Catalog with filters</li>
+                <li>Buy In Bulk — B2B inquiry section</li>
+                <li>Consumers in Sri Lanka — WhatsApp/retailer links</li>
+                <li>International Consumers — Partner shops</li>
+                <li>Where to Taste — Restaurant/hotel list</li>
+              </ul>
+            </li>
+            <li><b>🤝 Connect & Heal (6 pages)</b>
+              <ul style="margin-left:20px;margin-top:5px;">
+                <li>Restore Nature, Uplift Communities, Grow Crops</li>
+                <li>Develop Products, Join Programmes, Donate</li>
+              </ul>
+            </li>
+            <li>UI Polish & Animations</li>
+          </ul>
+          <p style="margin:10px 0 0 0;font-size:0.9rem;color:#666;"><b>Deliverable:</b> 11 more pages complete (total:
+            15 pages)</p>
+        </div>
+
+        <div style="background:#f5f5f5;padding:15px;border-radius:8px;margin-bottom:15px;">
+          <h4 style="margin-top:0;color:var(--forest-deep);">📝 Week 4: Story Pages + Backend & Forms (22 hrs)</h4>
+          <ul class="list" style="margin:10px 0;">
+            <li><b>📖 Our Healing Story (4 pages)</b>
+              <ul style="margin-left:20px;margin-top:5px;">
+                <li>About Us — Mission, story, team</li>
+                <li>Gallery — Photo/video showcase</li>
+                <li>Awards & Certifications — Credentials display</li>
+                <li>Reviews & Press — Testimonials, articles</li>
+              </ul>
+            </li>
+            <li><b>Utility Pages:</b> Contact form, FAQ</li>
+            <li><b>Forms Development:</b>
+              <ul style="margin-left:20px;margin-top:5px;">
+                <li>Booking Form (tours, stays, travel agents)</li>
+                <li>Bulk Inquiry Form, Application Forms</li>
+                <li>Donation Form, Contact Form</li>
+              </ul>
+            </li>
+            <li>Email Notification System — Setup & testing</li>
+            <li>WhatsApp Integration — Click-to-chat links</li>
+          </ul>
+          <p style="margin:10px 0 0 0;font-size:0.9rem;color:#666;"><b>Deliverable:</b> All 21 pages + forms functional
+            with email notifications</p>
+        </div>
+
+        <div style="background:#f5f5f5;padding:15px;border-radius:8px;margin-bottom:15px;">
+          <h4 style="margin-top:0;color:var(--forest-deep);">🚀 Week 5: Content, SEO & Launch (22 hrs)</h4>
+          <ul class="list" style="margin:10px 0;">
+            <li>Content Loading — Products, images, descriptions</li>
+            <li>SEO Setup — Meta tags, schema markup, sitemaps</li>
+            <li>Analytics Integration — Google Analytics 4</li>
+            <li>Performance Optimization — Image compression, CDN</li>
+            <li>Testing & QA — Cross-browser, mobile, form testing</li>
+            <li>Final Deployment & DNS Setup</li>
+            <li>Post-Launch Monitoring & Tweaks</li>
+          </ul>
+          <p style="margin:10px 0 0 0;font-size:0.9rem;color:#666;"><b>Deliverable:</b> Live website, optimized & ready
+            for users</p>
+        </div>
+
+        <div
+          style="background:var(--soft);padding:15px;border-radius:8px;border-left:4px solid var(--leaf);margin-top:20px;">
+          <h4 style="margin-top:0;color:var(--forest-deep);">📊 Summary</h4>
+          <ul class="list" style="margin:10px 0;">
+            <li><b>Total Hours:</b> 110 hours across 5 weeks</li>
+            <li><b>Total Pages:</b> 21 pages (Home + 18 sections + 2 utility)</li>
+            <li><b>Total Forms:</b> 6+ forms (booking, inquiry, application, donation, contact)</li>
+            <li><b>Average per Week:</b> 22 hours (4.4 days/week)</li>
+            <li><b>Milestones:</b> Week 1 (Setup) → Week 2-3 (Frontend) → Week 4 (Backend) → Week 5 (Launch)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accordion">
+      <button onclick="togglePanel(4)">
+        💰 Workload & Budget <span class="badge" style="background:var(--forest-deep);">✓ CONFIRMED</span>
+      </button>
+      <div id="panel4" class="panel">
+        <div
+          style="background:linear-gradient(135deg, var(--forest-deep) 0%, #2d6b45 100%);color:white;padding:15px;border-radius:10px;margin-bottom:15px;">
+          <h4 style="color:white;margin:0 0 8px 0;text-align:center;font-size:1rem;">💵 Finalized Quote: React
+            Development</h4>
+          <div style="display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin-top:10px;">
+            <div style="text-align:center;">
+              <div style="font-size:1.4rem;font-weight:bold;">110</div>
+              <div style="opacity:0.8;font-size:0.8rem;">Hours</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:1.4rem;font-weight:bold;">LKR 4,000</div>
+              <div style="opacity:0.8;font-size:0.8rem;">Per Hour</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:1.1rem;font-weight:bold;text-decoration:line-through;opacity:0.6;">LKR 4,40,000
+              </div>
+              <div style="opacity:0.8;font-size:0.8rem;">Original Price</div>
+            </div>
+          </div>
+          <!-- Discount Banner -->
+          <div
+            style="background:rgba(255,215,0,0.2);border:1px solid #ffd700;border-radius:8px;padding:10px;margin-top:12px;text-align:center;">
+            <div style="font-size:0.9rem;font-weight:600;color:#ffd700;margin-bottom:5px;">🎉 SPECIAL DISCOUNT: LKR
+              1,65,000 OFF (~37%)</div>
+            <div style="font-size:1.8rem;font-weight:bold;color:#ffd700;">LKR 2,75,000</div>
+            <div style="opacity:0.9;font-size:0.85rem;margin-top:3px;">Your Special Investment</div>
+          </div>
+        </div>
+
+        <h4 style="color:var(--forest-deep);margin-top:0;">📋 What's Included</h4>
+        <ul class="list">
+          <li><b>21 Pages:</b> Home + 18 sections across 4 main menus + 2 utility pages</li>
+          <li><b>6+ Forms:</b> Booking, inquiry, application, donation, contact forms</li>
+          <li><b>Email System:</b> Automated confirmations to users & staff</li>
+          <li><b>Responsive Design:</b> Mobile, tablet, and desktop optimized</li>
+          <li><b>SEO Setup:</b> Meta tags, schema markup, sitemaps</li>
+          <li><b>Analytics:</b> Google Analytics 4 integration</li>
+          <li><b>Performance:</b> CDN, image optimization, lazy loading</li>
+        </ul>
+
+        <h4 style="color:var(--forest-deep);margin-top:25px;">⏱️ Timeline</h4>
+        <ul class="list">
+          <li><b>Full-Time:</b> 5 weeks (22 hrs/week)</li>
+          <li><b>Part-Time:</b> 8-10 weeks</li>
+        </ul>
+
+        <h4 style="color:var(--forest-deep);margin-top:25px;">💳 Payment Terms (Suggested)</h4>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:15px;">
+          <div style="background:#e8f5e9;padding:15px;border-radius:8px;text-align:center;">
+            <b>30%</b><br>
+            <span style="font-size:0.85rem;color:#555;">Upfront</span><br>
+            <span style="font-size:0.9rem;color:var(--forest-deep);font-weight:bold;">LKR 82,500</span>
+          </div>
+          <div style="background:#fff8e1;padding:15px;border-radius:8px;text-align:center;">
+            <b>40%</b><br>
+            <span style="font-size:0.85rem;color:#555;">Mid-Project</span><br>
+            <span style="font-size:0.9rem;color:var(--forest-deep);font-weight:bold;">LKR 1,10,000</span>
+          </div>
+          <div style="background:#e3f2fd;padding:15px;border-radius:8px;text-align:center;">
+            <b>30%</b><br>
+            <span style="font-size:0.85rem;color:#555;">On Launch</span><br>
+            <span style="font-size:0.9rem;color:var(--forest-deep);font-weight:bold;">LKR 82,500</span>
+          </div>
+        </div>
+
+        <div
+          style="background:var(--soft);padding:15px;border-radius:8px;border-left:4px solid var(--leaf);margin-top:25px;">
+          <p style="margin:0;"><b>📝 Note:</b> This quote includes development only. Content (text, images, videos)
+            should be provided by the client. Hosting and domain costs are separate.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accordion">
+      <button onclick="togglePanel(5)">
+        ⚛️ Why React Was Chosen <span class="badge">Reference</span>
+      </button>
+      <div id="panel5" class="panel">
+        <h3 style="color:var(--forest-deep);margin-top:0;">Why React Over WordPress?</h3>
+
+        <table style="width:100%;border-collapse:collapse;margin:20px 0;">
+          <tr style="background:#f5f5f5;">
+            <th style="padding:12px;text-align:left;border:1px solid #ddd;color:var(--forest-deep);font-weight:bold;">
+              Aspect
+            </th>
+            <th style="padding:12px;text-align:left;border:1px solid #ddd;color:var(--forest-deep);font-weight:bold;">
+              WordPress</th>
+            <th style="padding:12px;text-align:left;border:1px solid #ddd;color:var(--forest-deep);font-weight:bold;">
+              React
+            </th>
+          </tr>
+          <tr>
+            <td style="padding:12px;border:1px solid #ddd;"><b>Performance</b></td>
+            <td style="padding:12px;border:1px solid #ddd;">Moderate (PHP-based, server-heavy)</td>
+            <td style="padding:12px;border:1px solid #ddd;"><b>⭐⭐⭐ Fast</b> (Client-side rendering, optimized)</td>
+          </tr>
+          <tr style="background:#f9f9f9;">
+            <td style="padding:12px;border:1px solid #ddd;"><b>Scalability</b></td>
+            <td style="padding:12px;border:1px solid #ddd;">Limited (plugin dependencies)</td>
+            <td style="padding:12px;border:1px solid #ddd;"><b>⭐⭐⭐ Excellent</b> (Grows with business)</td>
+          </tr>
+          <tr>
+            <td style="padding:12px;border:1px solid #ddd;"><b>Security</b></td>
+            <td style="padding:12px;border:1px solid #ddd;">Plugin vulnerabilities common</td>
+            <td style="padding:12px;border:1px solid #ddd;"><b>⭐⭐⭐ Stronger</b> (Fewer attack vectors)</td>
+          </tr>
+          <tr style="background:#f9f9f9;">
+            <td style="padding:12px;border:1px solid #ddd;"><b>Customization</b></td>
+            <td style="padding:12px;border:1px solid #ddd;">Theme-limited, plugin-dependent</td>
+            <td style="padding:12px;border:1px solid #ddd;"><b>⭐⭐⭐ Unlimited</b> (Full control)</td>
+          </tr>
+          <tr>
+            <td style="padding:12px;border:1px solid #ddd;"><b>Maintenance</b></td>
+            <td style="padding:12px;border:1px solid #ddd;">Ongoing plugin updates required</td>
+            <td style="padding:12px;border:1px solid #ddd;"><b>⭐⭐⭐ Cleaner</b> (Fewer dependencies)</td>
+          </tr>
+          <tr style="background:#f9f9f9;">
+            <td style="padding:12px;border:1px solid #ddd;"><b>Mobile Experience</b></td>
+            <td style="padding:12px;border:1px solid #ddd;">Responsive but slower</td>
+            <td style="padding:12px;border:1px solid #ddd;"><b>⭐⭐⭐ Native-like</b> (Smooth interactions)</td>
+          </tr>
+          <tr>
+            <td style="padding:12px;border:1px solid #ddd;"><b>Future-Proof</b></td>
+            <td style="padding:12px;border:1px solid #ddd;">Legacy technology</td>
+            <td style="padding:12px;border:1px solid #ddd;"><b>⭐⭐⭐ Modern</b> (Industry standard)</td>
+          </tr>
+        </table>
+
+        <h4 style="color:var(--forest-deep);margin-top:25px;">🚀 React's Key Advantages for Kaley Tea:</h4>
+        <ul class="list">
+          <li><b>Lightning-Fast Load Times</b> — Better SEO, higher conversion rates</li>
+          <li><b>Smooth User Experience</b> — Forms, booking calendar, product filters feel native</li>
+          <li><b>Real-Time Updates</b> — Availability calendar updates instantly</li>
+          <li><b>Mobile-First</b> — 70% of visitors use mobile; React excels here</li>
+          <li><b>Scalable for Growth</b> — Easy to add features (e-commerce, community features)</li>
+          <li><b>Better Analytics Integration</b> — Track user behavior precisely</li>
+        </ul>
+
+        <h4 style="color:var(--forest-deep);margin-top:25px;">🌍 Companies Using React (Why It Matters):</h4>
+        <div style="background:#f5f5f5;padding:15px;border-radius:8px;margin:15px 0;">
+          <p style="margin:0;"><b>Facebook/Meta</b> — Created React; uses it for 2.9B users worldwide</p>
+          <p style="margin:10px 0 0 0;font-size:0.9rem;color:#666;">Handles billions of interactions daily with zero
+            downtime</p>
+        </div>
+        <div style="background:#f5f5f5;padding:15px;border-radius:8px;margin:15px 0;">
+          <p style="margin:0;"><b>Netflix</b> — Switched to React for faster streaming interface</p>
+          <p style="margin:10px 0 0 0;font-size:0.9rem;color:#666;">Reduced page load time by 50%; improved user
+            retention</p>
+        </div>
+        <div style="background:#f5f5f5;padding:15px;border-radius:8px;margin:15px 0;">
+          <p style="margin:0;"><b>Airbnb</b> — React powers booking experience</p>
+          <p style="margin:10px 0 0 0;font-size:0.9rem;color:#666;">Smooth calendar, instant search filters, real-time
+            availability</p>
+        </div>
+        <div style="background:#f5f5f5;padding:15px;border-radius:8px;margin:15px 0;">
+          <p style="margin:0;"><b>Uber</b> — React for driver & passenger apps</p>
+          <p style="margin:10px 0 0 0;font-size:0.9rem;color:#666;">Real-time location updates, instant notifications
+          </p>
+        </div>
+        <div style="background:#f5f5f5;padding:15px;border-radius:8px;margin:15px 0;">
+          <p style="margin:0;"><b>Shopify</b> — React for merchant dashboard</p>
+          <p style="margin:10px 0 0 0;font-size:0.9rem;color:#666;">Real-time sales analytics, inventory management</p>
+        </div>
+        <div style="background:#f5f5f5;padding:15px;border-radius:8px;margin:15px 0;">
+          <p style="margin:0;"><b>Instagram</b> — React for web interface</p>
+          <p style="margin:10px 0 0 0;font-size:0.9rem;color:#666;">Instant feed updates, smooth image loading</p>
+        </div>
+
+        <h4 style="color:var(--forest-deep);margin-top:25px;">🔮 Why React is Future-Critical:</h4>
+        <ul class="list">
+          <li><b>AI Integration Ready</b> — Easy to add AI chatbots, recommendations</li>
+          <li><b>Progressive Web Apps (PWA)</b> — Works offline, installable like native apps</li>
+          <li><b>Web3 & Blockchain</b> — React is standard for crypto/NFT platforms</li>
+          <li><b>Real-Time Collaboration</b> — Perfect for community features, live chat</li>
+          <li><b>IoT & Wearables</b> — React Native extends to mobile/wearable apps</li>
+          <li><b>Industry Standard</b> — 43% of developers use React; largest ecosystem</li>
+        </ul>
+
+        <div
+          style="background:var(--soft);padding:15px;border-radius:8px;border-left:4px solid var(--leaf);margin-top:20px;">
+          <p style="margin:0;"><b>💡 For Kaley Tea:</b> React enables a modern, fast, beautiful website that can grow
+            with your business. Whether you add a mobile app, AI chatbot, or real-time community features later, React
+            is the foundation that scales.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>✅ Final Vision</h2>
+      <p>
+        This website will be a calm digital sanctuary reflecting Kaley Tea's philosophy — not loud marketing,
+        but gentle storytelling, beautiful imagery, and purposeful simplicity.
+      </p>
+      <p style="text-align:center;font-style:italic;margin-top:10px;">
+        "Where people, and forests heal together around flavorful cup of tea."
+      </p>
+    </div>
+
+  </section>
+
+  <footer>
+    Kaley Tea • Website Proposal<br>
+    Designed with a forest-healing spirit 🌱
+  </footer>
+
+  <script>
+    function togglePanel(id) {
+      let panel = document.getElementById("panel" + id);
+      panel.style.display = panel.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+</body>
+
+</html>

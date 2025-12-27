@@ -789,6 +789,82 @@ export const TravelAgentIcon: React.FC<IconProps> = ({ className = "w-10 h-10", 
     </svg>
 );
 
+// ========== MAIN JOURNEY ICONS ==========
+// Simple, meaningful icons that evoke the feeling of each journey
+
+// Visit & Heal - A person at peace under a protective tree
+// Simple silhouette: serenity, nature sheltering you
+export const VisitHealIcon: React.FC<IconProps> = ({ className = "w-10 h-10", strokeWidth = 1 }) => (
+    <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={className}
+    >
+        {/* Tree canopy - protective nature */}
+        <path d="M24 4c-10 4-16 12-12 20h24c4-8-2-16-12-20z" />
+        {/* Tree trunk */}
+        <path d="M24 24v8" />
+        {/* Person sitting peacefully under tree */}
+        <circle cx="24" cy="36" r="3" />
+        <path d="M18 44c2-3 4-4 6-4s4 1 6 4" />
+    </svg>
+);
+
+// Buy, Sip & Heal - A steaming cup with a leaf rising
+// Simple silhouette: warmth, tea as nature's gift
+export const BuySipHealIcon: React.FC<IconProps> = ({ className = "w-10 h-10", strokeWidth = 1 }) => (
+    <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={className}
+    >
+        {/* Rising leaf from steam - nature in the cup */}
+        <path d="M24 4c-4 4-4 10 0 14 4-4 4-10 0-14z" />
+        <path d="M24 8v6" />
+        {/* Tea cup - welcoming vessel */}
+        <path d="M12 22h24v4c0 8-4 14-12 16-8-2-12-8-12-16v-4z" />
+        {/* Handle */}
+        <path d="M36 26c4 0 6 3 6 6s-2 6-6 6" />
+        {/* Saucer */}
+        <path d="M8 44c0-2 7-3 16-3s16 1 16 3" />
+    </svg>
+);
+
+// Connect & Heal - Two hands nurturing a growing plant
+// Simple silhouette: togetherness, growth from connection
+export const ConnectHealIcon: React.FC<IconProps> = ({ className = "w-10 h-10", strokeWidth = 1 }) => (
+    <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={className}
+    >
+        {/* Left hand - cupped upward */}
+        <path d="M8 32c2-8 8-10 14-6" />
+        <path d="M8 32c4 4 10 6 14 4" />
+        {/* Right hand - cupped upward */}
+        <path d="M40 32c-2-8-8-10-14-6" />
+        <path d="M40 32c-4 4-10 6-14 4" />
+        {/* Growing plant in center - nurtured by both hands */}
+        <path d="M24 36v-18" />
+        <path d="M24 18c-5 1-7 5-5 8s6 2 5-3" />
+        <path d="M24 18c5 1 7 5 5 8s-6 2-5-3" />
+        {/* Top sprouting bud */}
+        <path d="M24 10c-2-4 0-6 2-5s2 5 0 7c2-2 4-3 4-1s-2 3-4 4" />
+    </svg>
+);
+
 export default {
     RestoreNatureIcon,
     CommunityIcon,
@@ -824,5 +900,8 @@ export default {
     MilestoneFairtradeIcon,
     NatureRestorationIcon,
     HealingSanctuaryIcon,
-    TravelAgentIcon
+    TravelAgentIcon,
+    VisitHealIcon,
+    BuySipHealIcon,
+    ConnectHealIcon
 };

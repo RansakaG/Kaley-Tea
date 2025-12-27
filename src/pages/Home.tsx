@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Leaf, Coffee, Heart, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
     LeafAccentIcon, OrganicLine, HealingBudIcon,
     GalleryTeaIcon, GalleryCommunityIcon, QuoteIcon,
-    OrganicIcon, FairtradeIcon
+    OrganicIcon, FairtradeIcon, NatureRestorationIcon,
+    VisitHealIcon, BuySipHealIcon, ConnectHealIcon
 } from '../components/icons/KaleyIcons';
 import LeafButton from '../components/ui/LeafButton';
 import Footer from '../components/ui/Footer';
@@ -12,7 +12,7 @@ import heroBackground from '../assets/images/03.jpg';
 import visitHealCard from '../assets/images/visit-heal-card.png';
 import buySipHealCard from '../assets/images/buy-sip-heal-card.png';
 import connectHealCard from '../assets/images/connect-heal-card.png';
-import ourStoryImage from '../assets/images/our-story-image.png';
+import ourStoryImage from '../assets/images/storyheal.png';
 
 // Gallery preview images
 import galleryEstate from '../assets/images/gallery/tea_estate_landscape.png';
@@ -97,34 +97,43 @@ function Home() {
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#3d4a3a] tracking-wide">
                             Your Healing Journey
                         </h2>
-                        <div className="flex items-center justify-center gap-6 mt-12">
+                        <div className="flex items-center justify-center gap-6 mt-8">
                             <OrganicLine className="w-24 text-[#a86d4d]/40" />
-                            <LeafAccentIcon className="w-8 h-8 text-[#a86d4d]/30 transform rotate-45" strokeWidth={0.8} />
+                            <HealingBudIcon className="w-6 h-6 text-[#a86d4d]/50" />
                             <OrganicLine className="w-24 text-[#a86d4d]/40" />
                         </div>
+                        <p className="text-lg md:text-xl font-light text-[#5a6b62] mt-8 max-w-2xl mx-auto leading-relaxed">
+                            There are numerous ways we could heal together — come, join our healing journey.
+                        </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
                         <JourneyCardLink
-                            icon={<Leaf className="w-10 h-10" strokeWidth={1} />}
+                            icon={<VisitHealIcon className="w-12 h-12 md:w-14 md:h-14" strokeWidth={1} />}
                             title="Visit & Heal"
-                            description="Immerse yourself in our peaceful forest retreat where nature restores your spirit"
+                            tagline="Do Nothing. Just Feel."
+                            experiences={["Tea garden walk", "Forest immersion", "Farm-to-table dining"]}
+                            audience="For seekers of peace and restoration"
                             href="/visit"
                             bgImage={visitHealCard}
                             accent="from-[#3d4a3a]/80 to-[#2a332d]/90"
                         />
                         <JourneyCardLink
-                            icon={<Coffee className="w-10 h-10" strokeWidth={1} />}
+                            icon={<BuySipHealIcon className="w-12 h-12 md:w-14 md:h-14" strokeWidth={1} />}
                             title="Buy, Sip & Heal"
-                            description="Experience the transformative power of organic tea crafted with intention"
+                            tagline="Bring the forest home to you"
+                            experiences={["Organic teas", "Herbal blends", "Worldwide shipping"]}
+                            audience="For tea enthusiasts everywhere"
                             href="/buy"
                             bgImage={buySipHealCard}
                             accent="from-[#a86d4d]/80 to-[#7a4f38]/90"
                         />
                         <JourneyCardLink
-                            icon={<Heart className="w-10 h-10" strokeWidth={1} />}
+                            icon={<ConnectHealIcon className="w-12 h-12 md:w-14 md:h-14" strokeWidth={1} />}
                             title="Connect & Heal"
-                            description="Join a community dedicated to wellness, sustainability, and mindful living"
+                            tagline="Join our healing journey"
+                            experiences={["Restore nature", "Uplift communities", "Join programmes"]}
+                            audience="For changemakers and healers"
                             href="/connect"
                             bgImage={connectHealCard}
                             accent="from-[#5a6b5e]/80 to-[#3d4a3a]/90"
@@ -134,21 +143,44 @@ function Home() {
             </section>
 
             {/* Our Story Section */}
-            <section className="py-24 md:py-32 bg-gradient-to-b from-[#faf8f5] via-[#f5f2ed] to-[#faf8f5]">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                        <div className="order-2 lg:order-1 space-y-8">
-                            <div className="flex items-center gap-3">
-                                <BookOpen className="w-6 h-6 text-[#c9a66b]" strokeWidth={1.5} />
-                                <span className="text-[#c9a66b] text-sm font-light tracking-[0.3em] uppercase">Our Story</span>
+            <section className="py-24 md:py-32 bg-gradient-to-b from-white/50 to-[#faf8f5]">
+                <div className="max-w-6xl mx-auto px-6">
+                    {/* Centered Header */}
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#1a4d2e] tracking-wide mb-6">
+                            Our Healing Story
+                        </h2>
+                        <div className="flex items-center justify-center gap-6 mb-8">
+                            <OrganicLine className="w-24 text-[#c9a66b]/40" />
+                            <HealingBudIcon className="w-6 h-6 text-[#c9a66b]/50" />
+                            <OrganicLine className="w-24 text-[#c9a66b]/40" />
+                        </div>
+                        <p className="text-lg md:text-xl font-light text-[#5a6b62] max-w-2xl mx-auto leading-relaxed">
+                            Rooted in heritage, growing with purpose
+                        </p>
+                    </div>
+
+                    {/* Content Grid */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                        {/* Image */}
+                        <div className="relative">
+                            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl relative">
+                                <img
+                                    src={ourStoryImage}
+                                    alt="Tea artisan hands holding freshly picked tea leaves"
+                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                                />
+                                {/* Overlay gradients */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#1a4d2e]/50 via-[#1a4d2e]/10 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#1a4d2e]/20 via-transparent to-[#c9a66b]/10"></div>
                             </div>
+                            {/* Decorative accents */}
+                            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#c9a66b]/10 rounded-2xl -z-10"></div>
+                            <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#1a4d2e]/5 rounded-2xl -z-10"></div>
+                        </div>
 
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#1a4d2e] leading-[1.2] tracking-wide">
-                                Rooted in Heritage,
-                                <br />
-                                <span className="text-[#c9a66b]">Growing with Purpose</span>
-                            </h2>
-
+                        {/* Text Content */}
+                        <div className="space-y-8">
                             <div className="space-y-6 text-[#5a6b62]">
                                 <p className="text-lg font-light leading-relaxed">
                                     Nestled in the misty highlands of Sri Lanka, Kaley Tea began as a dream shared between generations —
@@ -160,30 +192,15 @@ function Home() {
                                 </p>
                             </div>
 
-                            <div className="pt-4">
-                                <LeafButton to="/story" variant="dark">Discover Our Full Journey</LeafButton>
-                            </div>
-                        </div>
-
-                        <div className="order-1 lg:order-2 relative">
-                            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-[#1a4d2e]/10">
-                                <img
-                                    src={ourStoryImage}
-                                    alt="Tea artisan hands holding freshly picked tea leaves"
-                                    className="w-full h-full object-cover"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#1a4d2e]/30 via-transparent to-transparent"></div>
-                            </div>
-
-                            <div className="absolute -bottom-6 -left-6 w-32 h-32 border border-[#c9a66b]/20 rounded-full"></div>
-                            <div className="absolute -top-4 -right-4 w-20 h-20 bg-[#c9a66b]/10 rounded-full blur-2xl"></div>
-
-                            <div className="absolute bottom-8 left-8 right-8 lg:-left-8 lg:right-auto lg:w-80 bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
-                                <p className="text-[#1a4d2e] font-light italic text-sm leading-relaxed">
+                            {/* Quote Card */}
+                            <div className="bg-[#1a4d2e]/5 rounded-2xl p-6 border border-[#1a4d2e]/10">
+                                <p className="text-[#1a4d2e] font-light italic text-base leading-relaxed">
                                     "We don't just grow tea — we nurture a legacy of healing that connects people, nature, and tradition."
                                 </p>
-                                <p className="text-[#c9a66b] text-xs mt-3 tracking-wider">— The Kaley Family</p>
+                                <p className="text-[#c9a66b] text-sm mt-3 font-light tracking-wider">— The Kaley Family</p>
                             </div>
+
+                            <LeafButton to="/story" variant="dark">Discover Our Full Journey</LeafButton>
                         </div>
                     </div>
                 </div>
@@ -226,7 +243,7 @@ function Home() {
                         <div className="text-center group">
                             <div className="mb-8 relative inline-block">
                                 <div className="w-20 h-20 rounded-full bg-[#1a4d2e]/5 flex items-center justify-center border border-[#1a4d2e]/10 group-hover:border-[#c9a66b]/30 transition-colors duration-500">
-                                    <LeafAccentIcon className="w-10 h-10 text-[#1a4d2e]/60 group-hover:text-[#c9a66b] transition-colors duration-500" />
+                                    <NatureRestorationIcon className="w-10 h-10 text-[#1a4d2e]/60 group-hover:text-[#c9a66b] transition-colors duration-500" />
                                 </div>
                             </div>
                             <h3 className="text-xl font-light text-[#1a4d2e] mb-4 tracking-wide">
@@ -409,14 +426,18 @@ function Home() {
 function JourneyCardLink({
     icon,
     title,
-    description,
+    tagline,
+    experiences,
+    audience,
     href,
     bgImage,
     accent,
 }: {
     icon: React.ReactNode;
     title: string;
-    description: string;
+    tagline: string;
+    experiences: string[];
+    audience: string;
     href: string;
     bgImage: string;
     accent: string;
@@ -424,7 +445,7 @@ function JourneyCardLink({
     return (
         <Link
             to={href}
-            className="group relative h-[420px] md:h-[480px] rounded-3xl overflow-hidden cursor-pointer transform transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#1a4d2e]/20"
+            className="group relative h-[520px] md:h-[560px] rounded-3xl overflow-hidden cursor-pointer transform transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#1a4d2e]/20"
         >
             <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -435,9 +456,19 @@ function JourneyCardLink({
             <div className={`absolute inset-0 bg-gradient-to-t ${accent} opacity-80 group-hover:opacity-85 transition-opacity duration-500`}></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
 
-            <div className="absolute top-6 right-6 w-16 h-16 border border-white/30 rounded-full group-hover:scale-125 group-hover:border-white/50 transition-all duration-700"></div>
+            {/* Decorative corner accents */}
+            <div className="absolute top-5 left-5 opacity-30 group-hover:opacity-60 transition-opacity duration-500">
+                <LeafAccentIcon className="w-5 h-5 text-white transform -rotate-45" strokeWidth={1} />
+            </div>
+            <div className="absolute top-5 right-5 opacity-30 group-hover:opacity-60 transition-opacity duration-500">
+                <LeafAccentIcon className="w-5 h-5 text-white transform rotate-45" strokeWidth={1} />
+            </div>
+
+            {/* Decorative circle */}
+            <div className="absolute top-6 right-6 w-16 h-16 border border-white/20 rounded-full group-hover:scale-125 group-hover:border-white/40 transition-all duration-700"></div>
 
             <div className="absolute inset-0 flex flex-col justify-end p-8">
+                {/* Icon with glow effect */}
                 <div className="mb-6 relative">
                     <div className="absolute inset-0 bg-white/20 rounded-full blur-xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="relative text-white group-hover:text-white transition-colors duration-500 group-hover:scale-110 transform transition-transform duration-500 drop-shadow-lg">
@@ -445,15 +476,33 @@ function JourneyCardLink({
                     </div>
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-light text-white mb-4 tracking-wide group-hover:translate-x-1 transition-transform duration-500 drop-shadow-lg">
+                {/* Title */}
+                <h3 className="text-2xl md:text-3xl font-light text-white mb-3 tracking-wide group-hover:translate-x-1 transition-transform duration-500 drop-shadow-lg">
                     {title}
                 </h3>
 
-                <p className="text-white/90 font-light leading-relaxed text-sm md:text-base max-w-xs drop-shadow-md">
-                    {description}
+                {/* Tagline */}
+                <p className="text-white/90 font-light italic text-base mb-5 drop-shadow-md">
+                    "{tagline}"
                 </p>
 
-                <div className="mt-6 flex items-center gap-2 text-white/90 group-hover:text-white transition-colors duration-500 drop-shadow-md">
+                {/* Experience bullet list */}
+                <ul className="space-y-2 mb-5">
+                    {experiences.map((exp, index) => (
+                        <li key={index} className="flex items-center gap-2 text-white/85 text-sm font-light drop-shadow-sm">
+                            <LeafAccentIcon className="w-3 h-3 text-[#c9a66b]/70 flex-shrink-0" strokeWidth={1.5} />
+                            <span>{exp}</span>
+                        </li>
+                    ))}
+                </ul>
+
+                {/* Audience tag */}
+                <p className="text-[#c9a66b] text-xs font-light italic tracking-wide mb-4 drop-shadow-sm">
+                    {audience}
+                </p>
+
+                {/* CTA */}
+                <div className="flex items-center gap-2 text-white/90 group-hover:text-white transition-colors duration-500 drop-shadow-md">
                     <span className="text-sm tracking-wider font-medium">Begin Your Journey</span>
                     <span className="transform group-hover:translate-x-2 transition-transform duration-500">→</span>
                 </div>

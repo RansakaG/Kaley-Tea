@@ -232,7 +232,7 @@ export default function OurStory() {
                         <div className="text-center group">
                             <div className="mb-8 relative inline-block">
                                 <div className="w-20 h-20 rounded-full bg-[#1a4d2e]/5 flex items-center justify-center border border-[#1a4d2e]/10 group-hover:border-[#c9a66b]/30 transition-colors duration-500">
-                                    <LeafAccentIcon className="w-10 h-10 text-[#1a4d2e]/60 group-hover:text-[#c9a66b] transition-colors duration-500" />
+                                    <NatureRestorationIcon className="w-10 h-10 text-[#1a4d2e]/60 group-hover:text-[#c9a66b] transition-colors duration-500" />
                                 </div>
                             </div>
                             <h3 className="text-xl font-light text-[#1a4d2e] mb-4 tracking-wide">

@@ -760,6 +760,35 @@ export const HealingSanctuaryIcon: React.FC<IconProps> = ({ className = "w-6 h-6
     </svg>
 );
 
+// Travel Agent - Clipboard with multiple people representing booking for guests
+export const TravelAgentIcon: React.FC<IconProps> = ({ className = "w-10 h-10", strokeWidth = 1 }) => (
+    <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={className}
+    >
+        {/* Clipboard board */}
+        <rect x="10" y="8" width="28" height="36" rx="3" />
+        {/* Clipboard clip */}
+        <path d="M18 4h12v6H18z" />
+        <path d="M20 4v-1c0-1 1-2 4-2s4 1 4 2v1" />
+        {/* First person (main guest) */}
+        <circle cx="19" cy="20" r="3" />
+        <path d="M15 28c0-3 2-5 4-5s4 2 4 5" />
+        {/* Second person (companion) */}
+        <circle cx="29" cy="20" r="3" />
+        <path d="M25 28c0-3 2-5 4-5s4 2 4 5" />
+        {/* Decorative leaf at bottom */}
+        <path d="M20 34c2-2 4-1 5 1s-1 4-4 3c0 0 1-2 0-3s-2 0-1-1z" />
+        {/* Check line */}
+        <path d="M26 36l2 2 4-4" />
+    </svg>
+);
+
 export default {
     RestoreNatureIcon,
     CommunityIcon,
@@ -794,5 +823,6 @@ export default {
     OrganicGrowthIcon,
     MilestoneFairtradeIcon,
     NatureRestorationIcon,
-    HealingSanctuaryIcon
+    HealingSanctuaryIcon,
+    TravelAgentIcon
 };

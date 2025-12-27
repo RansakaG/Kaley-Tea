@@ -299,7 +299,7 @@ export default function OurStory() {
             </section>
 
             {/* ========== GALLERY SECTION ========== */}
-            <section className="py-16 md:py-20 relative overflow-hidden">
+            <section id="gallery" className="py-16 md:py-20 relative overflow-hidden">
                 {/* Decorative corner frames */}
                 <div className="absolute top-8 left-8 opacity-10">
                     <GalleryFrameCorner className="w-24 h-24 text-[#1a4d2e]" strokeWidth={0.5} />

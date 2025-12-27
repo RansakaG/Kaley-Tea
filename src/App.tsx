@@ -45,8 +45,8 @@ function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${getNavClass()}`}
     >
-      <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
-        <Link to="/" className="hover:opacity-70 transition-opacity duration-500">
+      <div className="max-w-7xl mx-auto px-8 py-3 flex items-center justify-between">
+        <Link to="/" className="flex items-center hover:opacity-70 transition-opacity duration-500">
           <img
             src={logoMain}
             alt="Kaley Tea"
@@ -75,6 +75,12 @@ function Navigation() {
           </Link>
           <Link
             to="/visit"
+            onClick={() => {
+              setTimeout(() => {
+                const element = document.getElementById('booking-section');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }}
             className="relative group text-[#a86d4d]"
           >
             <span>Book</span>

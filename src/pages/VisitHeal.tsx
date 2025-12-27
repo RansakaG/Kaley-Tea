@@ -1,5 +1,5 @@
-import { TourIcon, StayIcon, NearbyIcon, LeafAccentIcon, OrganicLine } from '../components/icons/KaleyIcons';
-import BookingForm from '../components/BookingForm';
+import { TourIcon, StayIcon, NearbyIcon, LeafAccentIcon } from '../components/icons/KaleyIcons';
+import BookingWizard from '../components/forms/BookingWizard';
 import LeafButton from '../components/ui/LeafButton';
 import Footer from '../components/ui/Footer';
 import visitHealHero from '../assets/images/visit-heal-hero-new.jpg';
@@ -34,61 +34,70 @@ export default function VisitHeal() {
 
       <section className="py-32 md:py-40">
         <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-[#c9a66b] text-sm tracking-[0.3em] uppercase mb-4">Our Retreats</p>
+            <h2 className="text-3xl md:text-4xl font-light tracking-wide text-[#1a4d2e]">
+              Choose Your Healing Journey
+            </h2>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12">
             <ExperienceCard
               icon={<TourIcon className="w-12 h-12" strokeWidth={1} />}
-              title="Tour with Us"
+              title="Day Visit"
               items={[
                 'Tea garden walk',
-                'Watch artisans',
-                'Make your tea',
+                'Watch artisans craft tea',
+                'Make your own tea',
                 'Forest trek',
+                'Farm-to-table lunch',
               ]}
-              cta="Learn more"
+              cta="Book a day visit"
             />
 
             <ExperienceCard
               icon={<StayIcon className="w-12 h-12" strokeWidth={1} />}
-              title="Live with Us"
-              items={['Stay 2+ days for the full healing experience', 'Farm-to-table meals', 'Wellness rituals']}
+              title="Stay Over"
+              items={[
+                '1-night escape or 2+ nights',
+                'Full healing experience',
+                'Farm-to-table meals',
+                'Wellness rituals',
+                'Forest immersion',
+              ]}
               cta="Book your stay"
+              recommended
             />
 
             <ExperienceCard
               icon={<NearbyIcon className="w-12 h-12" strokeWidth={1} />}
-              title="Nearby Places"
+              title="Activities"
               items={[
-                "Kandy's sacred temples",
-                'Ella Rock hiking trail',
-                'Nine Arches Bridge',
-                'Scenic train rides',
+                'Tea tasting sessions',
+                'Cooking with herbs',
+                'Meditation & yoga',
+                'Nature photography',
+                'Nearby temple visits',
               ]}
-              cta="Explore"
+              cta="Explore activities"
             />
           </div>
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-white/40">
+      <section id="booking-section" className="py-24 md:py-32 bg-white/40">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <p className="text-[#c9a66b] text-sm tracking-[0.3em] uppercase mb-4">Plan Your Visit</p>
-            <h2 className="text-4xl md:text-5xl font-light tracking-wide text-[#1a4d2e] mb-6">
-              Begin Your Journey
+            <h2 className="text-3xl md:text-4xl font-light tracking-wide text-[#1a4d2e] mb-4">
+              Begin Your Healing Journey
             </h2>
-            <p className="text-[#5a6b62] font-light text-lg leading-relaxed max-w-xl mx-auto">
-              Share your preferences, and we'll craft a personalized healing experience just for you.
+            <p className="text-[#5a6b62] font-light text-base leading-relaxed max-w-lg mx-auto">
+              Three simple steps to plan your experience at Kaley
             </p>
-
-            {/* Decorative divider */}
-            <div className="flex items-center justify-center gap-6 mt-12 mb-8">
-              <OrganicLine className="w-24 text-[#c9a66b]/40" />
-              <LeafAccentIcon className="w-8 h-8 text-[#c9a66b]/30 transform rotate-45" strokeWidth={0.8} />
-              <OrganicLine className="w-24 text-[#c9a66b]/40" />
-            </div>
           </div>
 
-          <BookingForm />
+          <BookingWizard />
         </div>
       </section>
 
@@ -103,12 +112,18 @@ interface ExperienceCardProps {
   title: string;
   items: string[];
   cta: string;
+  recommended?: boolean;
 }
 
-function ExperienceCard({ icon, title, items, cta }: ExperienceCardProps) {
+function ExperienceCard({ icon, title, items, cta, recommended }: ExperienceCardProps) {
   return (
-    <div className="text-center group transition-all duration-700">
-      <div className="text-[#1a4d2e] mb-8 flex justify-center group-hover:scale-110 transition-transform duration-700">
+    <div className="text-center group transition-all duration-700 relative">
+      {recommended && (
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs bg-[#c9a66b] text-white px-4 py-1 rounded-full font-light z-10">
+          Recommended
+        </span>
+      )}
+      <div className={`text-[#1a4d2e] mb-8 flex justify-center group-hover:scale-110 transition-transform duration-700 ${recommended ? 'mt-4' : ''}`}>
         {icon}
       </div>
 

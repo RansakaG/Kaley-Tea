@@ -1,1 +1,0 @@
-const a="/Kaley-Tea/assets/kaley-tea-estate-landscape-ByjdNUpn.webp",e="/Kaley-Tea/assets/kaley-local-community-gathering-B5eqQMcr.webp",s="/Kaley-Tea/assets/kaley-artisan-tea-crafting-CNtZvYSb.webp",t="/Kaley-Tea/assets/kaley-organic-tea-harvest-ChMKLLNi.webp";export{s as a,t as b,e as l,a as t};

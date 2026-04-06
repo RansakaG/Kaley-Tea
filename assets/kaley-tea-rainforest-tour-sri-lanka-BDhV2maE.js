@@ -1,0 +1,1 @@
+const e="/Kaley-Tea/assets/kaley-tea-rainforest-tour-sri-lanka-DV1nbb9s.jpg",t=Object.freeze(Object.defineProperty({__proto__:null,default:e},Symbol.toStringTag,{value:"Module"}));export{t as _,e as r};
